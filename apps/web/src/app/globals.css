@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f1b3d;
+  --navy: #1a2e6e;
+  --navy-dark: #0f1d4a;
+  --navy-soft: #e8edfb;
+  --navy-muted: #5b6a94;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-navy: var(--navy);
+  --color-navy-dark: var(--navy-dark);
+  --color-navy-soft: var(--navy-soft);
+  --color-navy-muted: var(--navy-muted);
+  --font-sans: var(--font-nunito);
+}
+
+/* Bilinçli olarak her zaman açık tema: beyaz zemin + lacivert. */
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Duolingo havasında "basılabilir" kalın butonlar */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3 text-base font-extrabold uppercase tracking-wide transition-[transform,box-shadow] duration-100 select-none;
+}
+.btn:active {
+  transform: translateY(4px);
+}
+.btn-primary {
+  @apply bg-navy text-white;
+  box-shadow: 0 4px 0 var(--navy-dark);
+}
+.btn-primary:active {
+  box-shadow: 0 0 0 var(--navy-dark);
+}
+.btn-outline {
+  @apply border-2 border-navy-soft bg-white text-navy;
+  box-shadow: 0 4px 0 var(--navy-soft);
+}
+.btn-outline:active {
+  box-shadow: 0 0 0 var(--navy-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
