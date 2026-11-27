@@ -6,7 +6,7 @@ import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { NOT_READY_MESSAGE, SUPABASE_CONFIGURED } from "@/lib/supabase/config";
 import { authErrorMessage } from "@/lib/auth-errors";
-import { MIN_PASSWORD } from "@/lib/auth-config";
+import { MIN_PASSWORD, isValidEmail, normalizeEmail } from "@lisansustu/core";
 import { AuthCard, Field, FormError, SubmitButton } from "./ui";
 import { CodeStep } from "./code-step";
 
@@ -26,8 +26,8 @@ export function ForgotForm() {
     e.preventDefault();
     setError("");
     if (!SUPABASE_CONFIGURED) return setError(NOT_READY_MESSAGE);
-    const mail = String(new FormData(e.currentTarget).get("email")).trim().toLowerCase();
-    if (!/^\S+@\S+\.\S+$/.test(mail)) return setError("Geçerli bir e-posta adresi gir.");
+    const mail = normalizeEmail(String(new FormData(e.currentTarget).get("email")));
+    if (!isValidEmail(mail)) return setError("Geçerli bir e-posta adresi gir.");
     setPending(true);
     const message = await sendCode(mail);
     setPending(false);

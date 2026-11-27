@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
-import { normalizePhone } from "@/lib/auth-config";
+import { normalizePhone } from "@lisansustu/core";
 import { useAuth } from "./auth-provider";
 import { AuthCard, Field, FormError, FormInfo, SubmitButton } from "./ui";
 

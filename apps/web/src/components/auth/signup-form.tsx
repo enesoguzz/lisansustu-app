@@ -6,7 +6,7 @@ import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { NOT_READY_MESSAGE, SUPABASE_CONFIGURED } from "@/lib/supabase/config";
 import { authErrorMessage } from "@/lib/auth-errors";
-import { MIN_PASSWORD, normalizePhone } from "@/lib/auth-config";
+import { MIN_PASSWORD, isValidEmail, normalizeEmail, normalizePhone } from "@lisansustu/core";
 import { AuthCard, Field, FormError, SubmitButton } from "./ui";
 import { CodeStep } from "./code-step";
 
@@ -22,14 +22,14 @@ export function SignupForm() {
     setError("");
     if (!SUPABASE_CONFIGURED) return setError(NOT_READY_MESSAGE);
     const form = new FormData(e.currentTarget);
-    const mail = String(form.get("email")).trim().toLowerCase();
+    const mail = normalizeEmail(String(form.get("email")));
     const password = String(form.get("password"));
     const phone = normalizePhone(String(form.get("phone")));
     const school = String(form.get("school")).trim();
     const fullName = String(form.get("full_name")).trim();
 
     if (!fullName) return setError("Adını ve soyadını yaz.");
-    if (!/^\S+@\S+\.\S+$/.test(mail)) return setError("Geçerli bir e-posta adresi gir.");
+    if (!isValidEmail(mail)) return setError("Geçerli bir e-posta adresi gir.");
     if (password.length < MIN_PASSWORD) return setError(`Şifre en az ${MIN_PASSWORD} karakter olmalı.`);
     if (!phone) return setError("Telefon numaranı 05xx xxx xx xx biçiminde yaz.");
     if (!form.get("consent")) return setError("Devam etmek için aydınlatma metnini onaylaman gerekiyor.");

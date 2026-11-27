@@ -1,5 +1,7 @@
-// Web ve ileride mobil uygulamanın paylaşacağı iş mantığı (veri tipleri, eşleştirme motoru).
+// Web ve ileride mobil uygulamanın paylaşacağı iş mantığı (veri tipleri, doğrulama, eşleştirme motoru).
 // Adım 5'te kabul ihtimali hesaplaması buraya eklenecek.
+
+export * from "./validation";
 
 export const DEGREE_TYPES = {
   "yl-tezli": "Tezli Yüksek Lisans",

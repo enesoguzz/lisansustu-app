@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Field, FormError, FormInfo, SubmitButton } from "./ui";
-import { OTP_LENGTH } from "@/lib/auth-config";
+import { OTP_LENGTH } from "@lisansustu/core";
 
 const RESEND_WAIT = 60;
 
