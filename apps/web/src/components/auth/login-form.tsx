@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
+import { NOT_READY_MESSAGE, SUPABASE_CONFIGURED } from "@/lib/supabase/config";
 import { authErrorMessage } from "@/lib/auth-errors";
 import { AuthCard, Field, FormError, SubmitButton } from "./ui";
 import { CodeStep } from "./code-step";
@@ -18,6 +19,7 @@ export function LoginForm() {
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError("");
+    if (!SUPABASE_CONFIGURED) return setError(NOT_READY_MESSAGE);
     const form = new FormData(e.currentTarget);
     const mail = String(form.get("email")).trim().toLowerCase();
     const password = String(form.get("password"));

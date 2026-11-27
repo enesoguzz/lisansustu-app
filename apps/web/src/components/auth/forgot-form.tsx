@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
+import { NOT_READY_MESSAGE, SUPABASE_CONFIGURED } from "@/lib/supabase/config";
 import { authErrorMessage } from "@/lib/auth-errors";
 import { MIN_PASSWORD } from "@/lib/auth-config";
 import { AuthCard, Field, FormError, SubmitButton } from "./ui";
@@ -24,6 +25,7 @@ export function ForgotForm() {
   async function submitEmail(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError("");
+    if (!SUPABASE_CONFIGURED) return setError(NOT_READY_MESSAGE);
     const mail = String(new FormData(e.currentTarget).get("email")).trim().toLowerCase();
     if (!/^\S+@\S+\.\S+$/.test(mail)) return setError("Geçerli bir e-posta adresi gir.");
     setPending(true);
