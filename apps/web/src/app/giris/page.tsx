@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { ComingSoon } from "@/components/coming-soon";
+import { LoginForm } from "@/components/auth/login-form";
 
 export const metadata: Metadata = { title: "Giriş yap" };
 
 export default function Page() {
-  return <ComingSoon title="Giriş yap" text="Üyelik sistemi bir sonraki adımda açılacak." />;
+  return <LoginForm />;
 }

@@ -7,10 +7,12 @@ import { Menu, X } from "lucide-react";
 import clsx from "clsx";
 import { Logo } from "./logo";
 import { NAV } from "@/lib/site";
+import { useAuth } from "./auth/auth-provider";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { user, loading } = useAuth();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -39,13 +41,21 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <div className="hidden items-center gap-3 md:flex">
-          <Link href="/giris" className="btn btn-outline !px-4 !py-2 text-sm">
-            Giriş yap
-          </Link>
-          <Link href="/kayit" className="btn btn-primary !px-4 !py-2 text-sm">
-            Ücretsiz başla
-          </Link>
+        <div className={clsx("hidden items-center gap-3 transition-opacity md:flex", loading && "opacity-0")}>
+          {user ? (
+            <Link href="/hesabim" className="btn btn-primary !px-4 !py-2 text-sm">
+              Hesabım
+            </Link>
+          ) : (
+            <>
+              <Link href="/giris" className="btn btn-outline !px-4 !py-2 text-sm">
+                Giriş yap
+              </Link>
+              <Link href="/kayit" className="btn btn-primary !px-4 !py-2 text-sm">
+                Ücretsiz başla
+              </Link>
+            </>
+          )}
         </div>
         <button
           className="rounded-xl p-2 text-navy md:hidden"
@@ -76,14 +86,20 @@ export function Header() {
                   {item.label}
                 </Link>
               ))}
-              <div className="mt-3 grid grid-cols-2 gap-3">
-                <Link href="/giris" onClick={() => setOpen(false)} className="btn btn-outline text-sm">
-                  Giriş yap
+              {user ? (
+                <Link href="/hesabim" onClick={() => setOpen(false)} className="btn btn-primary mt-3 text-sm">
+                  Hesabım
                 </Link>
-                <Link href="/kayit" onClick={() => setOpen(false)} className="btn btn-primary text-sm">
-                  Başla
-                </Link>
-              </div>
+              ) : (
+                <div className="mt-3 grid grid-cols-2 gap-3">
+                  <Link href="/giris" onClick={() => setOpen(false)} className="btn btn-outline text-sm">
+                    Giriş yap
+                  </Link>
+                  <Link href="/kayit" onClick={() => setOpen(false)} className="btn btn-primary text-sm">
+                    Başla
+                  </Link>
+                </div>
+              )}
             </div>
           </motion.nav>
         )}
