@@ -63,6 +63,8 @@ begin
 end;
 $$;
 
+revoke execute on function public.touch_updated_at() from public, anon, authenticated;
+
 create trigger profiles_touch_updated_at
   before update on public.profiles
   for each row execute function public.touch_updated_at();

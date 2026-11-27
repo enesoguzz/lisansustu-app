@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { normalizePhone } from "@lisansustu/core";
 import { useAuth } from "./auth-provider";
@@ -16,9 +16,10 @@ export function Account() {
   const [error, setError] = useState("");
   const [info, setInfo] = useState("");
   const [pending, setPending] = useState(false);
+  const leaving = useRef(false);
 
   useEffect(() => {
-    if (loading) return;
+    if (loading || leaving.current) return;
     if (!user) {
       router.replace("/giris");
       return;
@@ -57,8 +58,17 @@ export function Account() {
   }
 
   async function signOut() {
-    await createClient().auth.signOut();
-    router.replace("/");
+    setError("");
+    setInfo("");
+    leaving.current = true;
+    const { error } = await createClient().auth.signOut();
+    if (error) {
+      leaving.current = false;
+      return setError("Çıkış yapılamadı. İnternet bağlantını kontrol edip tekrar dene.");
+    }
+    // Bilerek tam sayfa yenileme: Next.js'in sakladığı önceki sayfa durumları da (formlar, üyeye ait bilgiler) temizlenir.
+    // eslint-disable-next-line @next/next/no-location-assign-relative-destination
+    window.location.href = "/";
   }
 
   if (loading || !user || !profile) {
