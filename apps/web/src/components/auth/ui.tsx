@@ -15,6 +15,14 @@ export function AuthCard({ title, subtitle, children }: { title: string; subtitl
   );
 }
 
+/**
+ * Üyelik formları. Gönderimi sayfanın kendi kodu karşılar; method="post" yalnızca bir önlemdir:
+ * sayfa tam yüklenmeden gönderilirse tarayıcı alanları (şifre dahil) adres çubuğuna yazmasın.
+ */
+export function Form(props: React.FormHTMLAttributes<HTMLFormElement>) {
+  return <form method="post" noValidate {...props} />;
+}
+
 type FieldProps = React.InputHTMLAttributes<HTMLInputElement> & { label: string; hint?: string };
 
 export function Field({ label, hint, className, ...props }: FieldProps) {
@@ -60,5 +68,14 @@ export function SubmitButton({ pending, disabled, children }: { pending: boolean
     <button type="submit" disabled={pending || disabled} className="btn btn-primary w-full disabled:opacity-60">
       {pending ? "Bekle..." : children}
     </button>
+  );
+}
+
+/** Bir link işlenirken gösterilen bekleme ekranı. */
+export function Working({ title }: { title: string }) {
+  return (
+    <AuthCard title={title} subtitle="Birkaç saniye sürebilir.">
+      <div className="h-24 animate-pulse rounded-3xl bg-navy-soft" role="status" aria-label={title} />
+    </AuthCard>
   );
 }

@@ -1,7 +1,6 @@
 /** Web ve mobil formlarının ortak doğrulama kuralları. */
 
-/** E-posta doğrulama kodunun hane sayısı (Supabase Auth ayarıyla aynı olmalı). */
-export const OTP_LENGTH = 6;
+/** En kısa şifre uzunluğu (Supabase Auth ayarıyla aynı olmalı). */
 export const MIN_PASSWORD = 8;
 
 export function normalizeEmail(input: string): string {

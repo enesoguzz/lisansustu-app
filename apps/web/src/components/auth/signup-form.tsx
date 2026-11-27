@@ -2,43 +2,55 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { NOT_READY_MESSAGE, SUPABASE_CONFIGURED } from "@/lib/supabase/config";
 import { authErrorMessage } from "@/lib/auth-errors";
+import { returnUrl } from "@/lib/auth-link";
 import { MIN_PASSWORD, isValidEmail, normalizeEmail, normalizePhone } from "@lisansustu/core";
-import { AuthCard, Field, FormError, SubmitButton } from "./ui";
-import { CodeStep } from "./code-step";
+import { useAuth } from "./auth-provider";
+import { AuthCard, Field, Form, FormError, SubmitButton } from "./ui";
+import { ConfirmEmailStep } from "./confirm-email-step";
+import { GoogleButton } from "./google-button";
+import { KvkkConsent } from "./kvkk-consent";
 
 export function SignupForm() {
   const router = useRouter();
-  const [step, setStep] = useState<"form" | "code">("form");
-  const [email, setEmail] = useState("");
+  const { user } = useAuth();
+  const [waiting, setWaiting] = useState<{ email: string; password: string } | null>(null);
   const [error, setError] = useState("");
   const [pending, setPending] = useState(false);
+
+  // Zaten giriş yapılmışsa ya da doğrulama linki başka bir sekmede açılıp oturum başladıysa hesaba geç.
+  useEffect(() => {
+    if (user) router.replace("/hesabim");
+  }, [user, router]);
 
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError("");
     if (!SUPABASE_CONFIGURED) return setError(NOT_READY_MESSAGE);
     const form = new FormData(e.currentTarget);
-    const mail = normalizeEmail(String(form.get("email")));
+    const email = normalizeEmail(String(form.get("email")));
     const password = String(form.get("password"));
     const phone = normalizePhone(String(form.get("phone")));
     const school = String(form.get("school")).trim();
     const fullName = String(form.get("full_name")).trim();
 
     if (!fullName) return setError("Adını ve soyadını yaz.");
-    if (!isValidEmail(mail)) return setError("Geçerli bir e-posta adresi gir.");
+    if (!isValidEmail(email)) return setError("Geçerli bir e-posta adresi gir.");
     if (password.length < MIN_PASSWORD) return setError(`Şifre en az ${MIN_PASSWORD} karakter olmalı.`);
     if (!phone) return setError("Telefon numaranı 05xx xxx xx xx biçiminde yaz.");
     if (!form.get("consent")) return setError("Devam etmek için aydınlatma metnini onaylaman gerekiyor.");
 
     setPending(true);
     const { data, error } = await createClient().auth.signUp({
-      email: mail,
+      email,
       password,
-      options: { data: { full_name: fullName, phone, school } },
+      options: {
+        emailRedirectTo: returnUrl("/dogrula"),
+        data: { full_name: fullName, phone, school, kvkk_accepted: true },
+      },
     });
     setPending(false);
 
@@ -51,34 +63,21 @@ export function SignupForm() {
       router.replace("/hesabim");
       return;
     }
-    setEmail(mail);
-    setStep("code");
+    setWaiting({ email, password });
   }
 
-  if (step === "code") {
+  if (waiting) {
     return (
-      <AuthCard title="E-postanı doğrula" subtitle="Son bir adım kaldı.">
-        <CodeStep
-          email={email}
-          onVerify={async (token) => {
-            const { error } = await createClient().auth.verifyOtp({ email, token, type: "email" });
-            if (error) return authErrorMessage(error);
-            router.replace("/hesabim");
-            return "";
-          }}
-          onResend={async () => {
-            const { error } = await createClient().auth.resend({ type: "signup", email });
-            return authErrorMessage(error);
-          }}
-        />
+      <AuthCard title="E-postanı kontrol et" subtitle="Son bir adım kaldı.">
+        <ConfirmEmailStep email={waiting.email} password={waiting.password} adoptPassword />
       </AuthCard>
     );
   }
 
   return (
     <AuthCard title="Ücretsiz hesap oluştur" subtitle="Puanlarını kaydet, sana özel önerileri gör.">
-      <form onSubmit={submit} noValidate>
-        <FormError message={error} />
+      <GoogleButton />
+      <Form onSubmit={submit}>
         <Field label="Ad Soyad" name="full_name" autoComplete="name" maxLength={120} required />
         <Field label="E-posta" name="email" type="email" autoComplete="email" required />
         <Field
@@ -98,17 +97,10 @@ export function SignupForm() {
           maxLength={160}
           hint="İstersen boş bırakabilirsin."
         />
-        <label className="mb-5 flex items-start gap-3 text-sm font-semibold text-navy-muted">
-          <input type="checkbox" name="consent" className="mt-1 h-4 w-4 accent-navy" />
-          <span>
-            <Link href="/kvkk" className="font-bold text-navy underline" target="_blank">
-              KVKK Aydınlatma Metni
-            </Link>
-            &apos;ni okudum, bilgilerimin üyelik için işlenmesini kabul ediyorum.
-          </span>
-        </label>
+        <KvkkConsent />
+        <FormError message={error} />
         <SubmitButton pending={pending}>Hesap oluştur</SubmitButton>
-      </form>
+      </Form>
       <p className="mt-6 text-center font-semibold text-navy-muted">
         Zaten üye misin?{" "}
         <Link href="/giris" className="font-extrabold text-navy underline">
