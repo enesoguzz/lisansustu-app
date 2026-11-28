@@ -11,11 +11,27 @@ Veritabanı ve üyelik Supabase üzerinde çalışır (proje: `lisansustu-app`, 
 | `0001_profiles.sql` | Üye profili tablosu, erişim kuralları, kayıtta profil oluşturan tetikleyici | Çalıştırıldı |
 | `0002_profile_limits.sql` | Ad, telefon ve okul alanlarına sunucu tarafı sınırları | Çalıştırıldı |
 | `0003_kvkk_consent.sql` | KVKK Aydınlatma Metni onayının zamanı, kayıtta ve ilk girişte yazılması, sonradan değiştirilememesi | Çalıştırıldı |
+| `0004_listings.sql` | Üniversiteler, programlar, dönem ilanları, ilanlar, genel kurallar, içe aktarma kayıtları; yönetici yetkisi ve dosyadan içe aktarma fonksiyonu | **Henüz çalıştırılmadı** |
 
 Projede iki güvenlik ayarı proje oluşturulurken şöyle seçildi:
 
 - **Enable RLS on new tables automatically: açık.** Kuralı yazılmamış bir tablo API'den hiç okunamaz.
 - **Grant API access to new tables automatically: kapalı.** Yeni tablolar `anon`, `authenticated` ve `service_role` rollerine kendiliğinden açılmaz. Bu yüzden her yeni tablonun migration dosyasında gereken `grant` açıkça yazılmalıdır, yoksa uygulama "permission denied" hatası alır. Sunucu tarafında gizli anahtarla okunacak tablolarda `service_role` için de `grant` gerekir.
+
+Dosyalar canlı projede çalıştırılmadan önce `packages/db` içindeki testlerde gerçek bir PostgreSQL üzerinde sırayla çalıştırılır ve erişim kuralları tek tek denenir (`pnpm test`). Yeni bir migration yazıldığında testi de oraya eklenir.
+
+### Yönetici yetkisi
+
+Yönetim paneline (`/yonetim`) yalnızca `profiles.role` değeri `admin` olan üyeler girebilir. Üye bu değeri kendisi değiştiremez; yetki SQL Editor'dan verilir:
+
+```sql
+update public.profiles set role = 'admin'
+where id = (select id from auth.users where email = 'YONETICI_E_POSTASI');
+```
+
+Yetkiyi geri almak için aynı sorgu `'user'` değeriyle çalıştırılır. E-posta adresi depoya yazılmaz.
+
+Yayındaki dönem ilanlarını ve ilanlarını herkes okur. Taslakları görmek ve her türlü yazma işlemi yalnızca yöneticiye açıktır; bunu veritabanındaki erişim kuralları sağlar, sitenin sayfayı gizlemesine güvenilmez. Üniversite, program ve genel kural kayıtlarının taslak durumu yoktur, kaydedildikleri anda okunabilir.
 
 ## 2. Üyelik ayarları
 
