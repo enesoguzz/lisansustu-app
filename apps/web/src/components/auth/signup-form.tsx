@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { NOT_READY_MESSAGE, SUPABASE_CONFIGURED } from "@/lib/supabase/config";
-import { authErrorMessage } from "@/lib/auth-errors";
+import { PASSWORD_TOO_LONG_MESSAGE, authErrorMessage, invalidEmailMessage } from "@/lib/auth-errors";
 import { returnUrl } from "@/lib/auth-link";
-import { MIN_PASSWORD, isValidEmail, normalizeEmail, normalizePhone } from "@lisansustu/core";
+import { MIN_PASSWORD, isPasswordTooLong, isValidEmail, normalizeEmail, normalizePhone } from "@lisansustu/core";
 import { useAuth } from "./auth-provider";
 import { AuthCard, Field, Form, FormError, SubmitButton } from "./ui";
 import { ConfirmEmailStep } from "./confirm-email-step";
@@ -38,8 +38,9 @@ export function SignupForm() {
     const fullName = String(form.get("full_name")).trim();
 
     if (!fullName) return setError("Adını ve soyadını yaz.");
-    if (!isValidEmail(email)) return setError("Geçerli bir e-posta adresi gir.");
+    if (!isValidEmail(email)) return setError(invalidEmailMessage(email));
     if (password.length < MIN_PASSWORD) return setError(`Şifre en az ${MIN_PASSWORD} karakter olmalı.`);
+    if (isPasswordTooLong(password)) return setError(PASSWORD_TOO_LONG_MESSAGE);
     if (!phone) return setError("Telefon numaranı 05xx xxx xx xx biçiminde yaz.");
     if (!form.get("consent")) return setError("Devam etmek için aydınlatma metnini onaylaman gerekiyor.");
 

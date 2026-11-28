@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useCallback, useState } from "react";
 import { createMailClient } from "@/lib/supabase/client";
 import { NOT_READY_MESSAGE, SUPABASE_CONFIGURED } from "@/lib/supabase/config";
-import { authErrorMessage } from "@/lib/auth-errors";
+import { authErrorMessage, invalidEmailMessage } from "@/lib/auth-errors";
 import { returnUrl } from "@/lib/auth-link";
 import { isValidEmail, normalizeEmail } from "@lisansustu/core";
 import { AuthCard, Field, Form, FormError, SubmitButton } from "./ui";
@@ -25,7 +25,7 @@ export function ForgotForm() {
     setError("");
     if (!SUPABASE_CONFIGURED) return setError(NOT_READY_MESSAGE);
     const email = normalizeEmail(String(new FormData(e.currentTarget).get("email")));
-    if (!isValidEmail(email)) return setError("Geçerli bir e-posta adresi gir.");
+    if (!isValidEmail(email)) return setError(invalidEmailMessage(email));
     setPending(true);
     const message = await sendLink(email);
     setPending(false);
