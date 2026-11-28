@@ -85,10 +85,10 @@ Supabase'in kendi e-posta servisi yalnızca deneme içindir:
 
 ### Kayıtlar herkese açılmadan önce
 
-E-posta servisi bağlandığı anda herkes kayıt olabilir. Aşağıdakiler ondan **önce** tamamlanmalıdır; şu an yalnızca proje ekibindeki adresler kayıt olabildiği için bugün kullanılabilir açıklar değildir.
+E-posta servisi bağlandığı anda herkes kayıt olabilir. Aşağıdakiler ondan **önce** tamamlanmalıdır. Bugün e-postayla yalnızca proje ekibindeki adresler kayıt olabildiği için acil değildir.
 
-1. **Şifre ve kişisel bilgiler e-posta doğrulandıktan sonra alınmalı.** Bugün kayıt formu şifreyi, telefonu ve üniversiteyi e-posta doğrulanmadan önce gönderir. Supabase, doğrulanmamış bir kaydın üzerine aynı e-postayla yeniden kayıt olunduğunda ilk şifreyi ve ilk bilgileri saklar. Bu yüzden bir başkası, e-postanın sahibinden önce o adresle kayıt başlatırsa kendi belirlediği şifre hesapta kalabilir; ayrıca doğrulanmamış kaydın adı, telefonu ve üniversitesi aynı e-postayla yeniden kayıt isteği gönderen kişiye geri dönebilir. Kalıcı çözüm: kayıtta yalnızca e-posta alınır, şifre ile diğer bilgiler linke tıklandıktan sonra açılan adımda girilir.
-2. **Bot koruması.** Authentication > Attack Protection altında CAPTCHA açılmalı ve site kayıt, giriş, yeniden gönderme ve şifre yenileme isteklerinde doğrulama bilgisini göndermelidir. Yoksa bir betik saatlik e-posta sınırını doldurup kayıt ve şifre yenilemeyi herkes için durdurabilir.
+1. **Şifre ve kişisel bilgiler e-posta doğrulandıktan sonra alınmalı.** Bugün kayıt formu şifreyi, telefonu, üniversiteyi ve aydınlatma metni onayını e-posta doğrulanmadan önce gönderir; o anda e-postanın gerçekten formu dolduran kişiye ait olduğu bilinmez. Kayıt iki adıma bölünmelidir: kayıtta yalnızca e-posta alınır, şifre ile diğer bilgiler linke tıklandıktan sonra açılan adımda girilir.
+2. **Bot koruması.** Authentication > Attack Protection altında CAPTCHA açılmalı ve site kayıt, giriş, yeniden gönderme ve şifre yenileme isteklerinde doğrulama bilgisini göndermelidir. E-posta gönderimi saatlik bir sınıra bağlı olduğu için otomatik istekler bu sınırı gerçek üyelerin aleyhine tüketebilir.
 3. **Dönüş adresleri daraltılmalı.** Redirect URLs listesinden önizleme adresi kalıbı ve `localhost` çıkarılmalıdır; önizleme ve yerel çalışma için ayrı bir Supabase projesi kullanılır.
 4. **KVKK Aydınlatma Metni** yayımlanmalı ve onay kutusunun metni hukuken gözden geçirilmelidir.
 
