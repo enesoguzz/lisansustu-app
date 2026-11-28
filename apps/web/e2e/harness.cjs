@@ -133,23 +133,47 @@ async function openBrowser() {
   return { browser, device, errors };
 }
 
+/** Kapıda zaten yanıt veren bir sunucu var mı? */
+async function answers(url) {
+  try {
+    await fetch(url);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 /** Siteyi derler, sahte sunucuyla birlikte başlatır, deneme takımlarını sırayla koşar ve sonucu yazar. */
 async function main(suites) {
+  // Yarıda kesilmiş bir koşudan kalan sunucu varsa denemeler eski derlemeye karşı koşar ve sonuç yanıltır.
+  for (const url of [BASE, MOCK]) {
+    if (await answers(url)) throw new Error(`${url} adresinde zaten bir sunucu çalışıyor. Önce onu kapat.`);
+  }
   const build = spawnSync('pnpm', ['exec', 'next', 'build'], { cwd: WEB_DIR, env, stdio: ['ignore', 'ignore', 'inherit'] });
   if (build.status !== 0) throw new Error('Derleme başarısız.');
   settings.siteUrl = BASE;
   const mock = await startMock(MOCK_PORT);
   const site = spawn('pnpm', ['exec', 'next', 'start', '-p', String(SITE_PORT)], { cwd: WEB_DIR, env, stdio: 'ignore', detached: true });
   let crashed = null;
+  const stop = () => {
+    try {
+      process.kill(-site.pid);
+    } catch {}
+  };
+  // Koşu elle kesilirse site arkada çalışır kalmasın.
+  for (const signal of ['SIGINT', 'SIGTERM']) {
+    process.once(signal, () => {
+      stop();
+      process.exit(130);
+    });
+  }
   try {
     await waitForSite();
     for (const suite of suites) await suite();
   } catch (e) {
     crashed = e;
   } finally {
-    try {
-      process.kill(-site.pid);
-    } catch {}
+    stop();
     mock.close();
   }
   console.log(out.join('\n'));
