@@ -302,6 +302,7 @@ export function reviewDetails(degree: Degree, accepting: boolean, details: Listi
     const mins = [derived.ales_say_min, derived.ales_soz_min, derived.ales_ea_min].filter((v): v is number => v !== null);
     if (!mins.length) warn("ALES isteniyor ama puan türü ve alt sınır yazılmamış.", under("ALES"));
     else {
+      if (!ales.options?.length && !ales.variants?.length) warn("ALES puan türü yazılmamış.", under("ALES"));
       const lowest = Math.min(...mins);
       if (degree === "butunlesik-doktora" && lowest < 80) {
         warn(`Lisans derecesiyle doktorada yönetmelik en az 80 ALES ister; burada ${lowest} yazıyor.`, under("ALES"));

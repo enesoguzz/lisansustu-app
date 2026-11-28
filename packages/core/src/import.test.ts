@@ -237,6 +237,19 @@ describe("türetilen sütunlar ve özetler", () => {
     expect(deriveColumns(undefined)).toMatchObject({ quota_total: null, ales_required: null, lang_required: null });
   });
 
+  it("puan türü yazılmamış ALES sınırı her tür için geçerli sayılır", () => {
+    const rule: ListingDetails = { ales: { required: true, min: 55 } };
+    expect(deriveColumns(rule)).toMatchObject({ ales_required: true, ales_say_min: 55, ales_soz_min: 55, ales_ea_min: 55 });
+    expect(alesSummary(rule.ales)).toBe("En az 55");
+    // Tür belliyse türsüz sınır dikkate alınmaz.
+    const typed: ListingDetails = { ales: { required: true, min: 55, options: [{ type: "SAY", min: 70 }] } };
+    expect(deriveColumns(typed)).toMatchObject({ ales_say_min: 70, ales_soz_min: null, ales_ea_min: null });
+    expect(alesSummary(typed.ales)).toBe("SAY 70");
+    expect(deriveColumns({ ales: { required: false, min: 55 } })).toMatchObject({ ales_say_min: null });
+    expect(hasErrors(check(DETAILS_SCHEMA, rule).issues)).toBe(false);
+    expect(hasErrors(check(DETAILS_SCHEMA, { ales: { required: true, min: 120 } }).issues)).toBe(true);
+  });
+
   it("kontenjan toplamı", () => {
     expect(quotaTotal({ main: 6 })).toBe(6);
     expect(quotaTotal({ tracks: [{ name: "Geoteknik", main: 8 }, { name: "Yapı", main: 8, prep: 1 }] })).toBe(17);
@@ -246,7 +259,10 @@ describe("türetilen sütunlar ve özetler", () => {
     expect(quotaSummary({ prep: 2 })).toBe("2 hazırlık");
     expect(quotaSummary({ main: 0, prep: 2 })).toBe("0 + 2 hazırlık");
     expect(gpaSummary({ min4: 2.4, masterMin4: 3.25 })).toBe("2,40 (YL 3,25)");
+    expect(gpaSummary({ masterMin4: 3 })).toBe("YL 3,00");
+    expect(gpaSummary({ min100: 70, masterMin100: 80 })).toBe("70/100 (YL 80/100)");
     expect(gpaSummary({ min100: 70 })).toBe("70/100");
+    expect(gpaSummary({ note: "ilan edilecek" })).toBe("");
   });
 });
 
@@ -294,6 +310,13 @@ describe("parseImport", () => {
     const issues = reviewDetails("yl-tezli", true, { quota: { main: 5 }, gpa: { min4: 2.5 }, ales: { required: true, options: [{ type: "SAY", min: 40 }] } }, "");
     expect(issues).toEqual([{ level: "warning", path: "ALES", message: "Yönetmelik en az 55 ALES ister; burada 40 yazıyor." }]);
     expect(reviewDetails("yl-tezli", true, {}, "").map((i) => i.path)).toEqual(["", "", ""]);
+    expect(reviewDetails("yl-tezli", true, { quota: { main: 5 }, gpa: { min4: 2.5 }, ales: { required: true, min: 55 } }, "")).toEqual([
+      { level: "warning", path: "ALES", message: "ALES puan türü yazılmamış." },
+    ]);
+    expect(reviewDetails("butunlesik-doktora", true, { quota: { main: 5 }, gpa: { min4: 3 }, ales: { required: true, min: 55 } }, "").map((i) => i.message)).toEqual([
+      "ALES puan türü yazılmamış.",
+      "Lisans derecesiyle doktorada yönetmelik en az 80 ALES ister; burada 55 yazıyor.",
+    ]);
     expect(reviewDetails("yl-tezli", false, {}, "")).toEqual([]);
   });
 

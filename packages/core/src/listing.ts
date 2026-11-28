@@ -31,6 +31,8 @@ export type AlesRule = {
   required: boolean;
   /** Kabul edilen puan türleri ve alt sınırları; biri yeterlidir. */
   options?: AlesOption[];
+  /** Puan türü yazılmamışsa alt sınır ("programın puan türünde en az 55"). Tür belliyse `options` kullanılır. */
+  min?: number;
   /** ALES yerine kabul edilen sınavlar ve ilanda yazan karşılıkları. */
   substitutes?: AlesSubstitute[];
   /** Adayın durumuna (not ortalaması, alan dışı olma vb.) göre değişen şartlar. */
@@ -170,6 +172,13 @@ const alesSchema: ObjectNode = {
       item: alesOption,
       itemName: "Seçenek",
       max: 6,
+    },
+    min: {
+      kind: "number",
+      label: "Alt sınır (puan türü yazılmamışsa)",
+      min: 0,
+      max: 100,
+      hint: "Kaynakta yalnızca “programın puan türünde en az 55” gibi yazıyorsa. Puan türü belliyse üstteki satırları kullan.",
     },
     substitutes: { kind: "list", label: "ALES yerine kabul edilen sınavlar", item: alesSubstitute, itemName: "Sınav", max: 6 },
     variants: {
@@ -462,7 +471,9 @@ function alesOptions(ales: AlesRule): AlesOption[] {
 export function deriveColumns(details: ListingDetails | undefined): DerivedColumns {
   const d = details ?? {};
   const options = d.ales?.required ? alesOptions(d.ales) : [];
-  const alesMin = (type: AlesType) => lowest(options.filter((o) => o.type === type).map((o) => o.min));
+  // Puan türü yazılmamışsa sınır her tür için geçerli sayılır: hangi türün arandığı bilinmediğinden ilan hiçbir türde gizlenmez.
+  const anyType = d.ales?.required && !options.length ? (d.ales.min ?? null) : null;
+  const alesMin = (type: AlesType) => (options.length ? lowest(options.filter((o) => o.type === type).map((o) => o.min)) : anyType);
 
   const ydsFloors = (d.language?.required ? (d.language.rules ?? []) : [])
     .map((rule) => lowest(rule.options.filter((o) => o.exam === "YDS" || o.exam === "YOKDIL").map((o) => o.min)))
@@ -492,7 +503,7 @@ function optionsText(options: AlesOption[]): string {
   return options.map((o) => `${ALES_ABBR[o.type]} ${formatNumber(o.min)}`).join(" veya ");
 }
 
-/** "SAY 70", "EA / SAY / SÖZ 75", "İstenmiyor", "SAY 70-75 (koşullu)" */
+/** "SAY 70", "EA / SAY / SÖZ 75", "İstenmiyor", "SAY 70-75 (koşullu)", "En az 55" */
 export function alesSummary(ales: AlesRule | undefined): string {
   if (!ales) return "";
   if (!ales.required) return "İstenmiyor";
@@ -505,18 +516,17 @@ export function alesSummary(ales: AlesRule | undefined): string {
     const [lo, hi] = [Math.min(...mins), Math.max(...mins)];
     return `${types} ${lo === hi ? formatNumber(lo) : `${formatNumber(lo)}-${formatNumber(hi)}`} (koşullu)`;
   }
+  if (ales.min !== undefined) return `En az ${formatNumber(ales.min)}`;
   return "İsteniyor";
 }
 
-/** "2,50", "2,40 (YL 3,25)", "70/100" */
+/** "2,50", "2,40 (YL 3,25)", "YL 3,00", "70/100" */
 export function gpaSummary(gpa: GpaRule | undefined): string {
   if (!gpa) return "";
-  const parts: string[] = [];
-  if (gpa.min4 !== undefined) parts.push(formatNumber(gpa.min4, 2));
-  else if (gpa.min100 !== undefined) parts.push(`${formatNumber(gpa.min100)}/100`);
-  if (gpa.masterMin4 !== undefined) parts.push(`(YL ${formatNumber(gpa.masterMin4, 2)})`);
-  else if (gpa.masterMin100 !== undefined) parts.push(`(YL ${formatNumber(gpa.masterMin100)}/100)`);
-  let text = parts.join(" ");
+  const bachelor = gpa.min4 !== undefined ? formatNumber(gpa.min4, 2) : gpa.min100 !== undefined ? `${formatNumber(gpa.min100)}/100` : "";
+  const master =
+    gpa.masterMin4 !== undefined ? `YL ${formatNumber(gpa.masterMin4, 2)}` : gpa.masterMin100 !== undefined ? `YL ${formatNumber(gpa.masterMin100)}/100` : "";
+  let text = bachelor && master ? `${bachelor} (${master})` : bachelor || master;
   if (!text && gpa.variants?.length) {
     const lo = lowest(gpa.variants.map((v) => v.min4));
     text = lo !== null ? formatNumber(lo, 2) : "";
