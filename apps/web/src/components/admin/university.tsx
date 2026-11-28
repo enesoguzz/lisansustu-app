@@ -15,6 +15,7 @@ import {
   entries,
   gpaSummary,
   hasErrors,
+  languageSummary,
   programRow,
   slugify,
   termLabel,
@@ -370,6 +371,18 @@ function RuleForm({ initial, onSubmit, onCancel }: { initial?: Rule; onSubmit: (
   );
 }
 
+/** Kural satırının tek bakışlık özeti: ALES, not ortalaması ve yabancı dil alt sınırları. */
+function ruleSummary(details: ListingDetails): string {
+  return [
+    ["ALES", alesSummary(details.ales)],
+    ["Not ortalaması", gpaSummary(details.gpa)],
+    ["Yabancı dil", languageSummary(details.language)],
+  ]
+    .filter(([, text]) => text)
+    .map(([label, text]) => `${label}: ${text}`)
+    .join(" · ");
+}
+
 function Rules({ university, rules, onChanged }: { university: University; rules: Rule[]; onChanged: () => void }) {
   const [editing, setEditing] = useState<string | null>(null);
   const [error, setError] = useState("");
@@ -427,9 +440,7 @@ function Rules({ university, rules, onChanged }: { university: University; rules
                       {rule.institute && <span className="font-semibold text-navy-muted"> · {rule.institute}</span>}
                     </span>
                     <span className="block text-sm font-semibold text-navy-muted">
-                      {[alesSummary(rule.details.ales) && `ALES: ${alesSummary(rule.details.ales)}`, gpaSummary(rule.details.gpa) && `Not ortalaması: ${gpaSummary(rule.details.gpa)}`]
-                        .filter(Boolean)
-                        .join(" · ") || "Şart yazılmamış"}
+                      {ruleSummary(rule.details) || "Şart yazılmamış"}
                     </span>
                   </span>
                   <button type="button" onClick={() => setEditing(rule.id)} className="text-xs font-extrabold text-navy underline">

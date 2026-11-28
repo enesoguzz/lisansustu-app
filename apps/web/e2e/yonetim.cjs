@@ -13,6 +13,8 @@ const ADMIN = `yonetici-${stamp}@example.com`;
 const MEMBER = `uye-${stamp}@example.com`;
 const PW = 'yerel-deneme-1';
 const FIXTURE = path.join(__dirname, 'fixtures', 'ornek-ilan.json');
+// Depodaki gerçek veri dosyalarından biri: yalnızca genel kural taşır, dönem ilanı yoktur.
+const RULES_FILE = path.join(__dirname, '..', '..', '..', 'data', 'imports', 'kadir-has-genel-kurallar.json');
 
 /** Ziyaretçinin (oturumsuz) okuyabildiği satırlar. */
 async function publicRows(resource) {
@@ -78,6 +80,19 @@ async function checks() {
     await V(p.locator('header').getByRole('link', { name: 'Yönetim' })).click();
     check('Yönetim sayfası açılır', await K.heading('Yönetim'));
     check('ilk açılışta ilan yok', await seen('Henüz ilan yok.'));
+
+    // Kod yayında ama SQL dosyası henüz çalıştırılmamış: API "böyle bir tablo yok" der, panel ne yapılacağını söylemeli.
+    const missing = { code: 'PGRST205', details: null, hint: null, message: "Could not find the table 'public.call_overview' in the schema cache" };
+    await p.route('**/rest/v1/call_overview*', (route) => route.fulfill({ status: 404, contentType: 'application/json', body: JSON.stringify(missing) }));
+    await p.reload();
+    await K.heading('Yönetim');
+    check('tablolar kurulmamışsa panel bunu söyler', await seen(/tabloları bu veritabanında henüz kurulmamış.*0004_listings\.sql/), await mainText());
+    await p.unroute('**/rest/v1/call_overview*');
+    await p.route('**/rest/v1/call_overview*', (route) => route.fulfill({ status: 500, contentType: 'application/json', body: JSON.stringify({ code: 'XX000', message: 'boom' }) }));
+    await p.reload();
+    await K.heading('Yönetim');
+    check('yüklenemeyen sayfa "kaydedilemedi" demez', (await seen('Yüklenemedi. Sayfayı yenileyip tekrar dene.')) && !(await mainText()).includes('Kaydedilemedi'), await mainText());
+    await p.unroute('**/rest/v1/call_overview*');
 
     await upload({ name: 'bozuk.json', mimeType: 'application/json', buffer: Buffer.from('{ "format": ') });
     check('bozuk dosya: okunamadı uyarısı', await seen(/Dosya okunamadı/));
@@ -244,8 +259,37 @@ async function checks() {
     check('yayından kalkan ilan ziyaretçiye kapanır', (await publicRows('calls?select=id')).length === 0 && (await publicRows('listings?select=id')).length === 0);
   });
 
-  // 7. Üniversite, genel kural, program, elle dönem ilanı
+  // 7. Yalnızca genel kural taşıyan dosya: taslak durumu yoktur, kaydedilince herkese görünür
   await section('yönetim 7', async () => {
+    await upload(RULES_FILE);
+    check('genel kural dosyası: önizleme', await seen('2. Önizleme'));
+    const text = await mainText();
+    check('genel kural dosyası: başlık ve sayılar', text.includes('Kadir Has Üniversitesi · Genel kurallar') && text.includes('Yeni üniversite') && text.includes('4 yeni, 0 değişecek, 0 aynı'), text.slice(300, 900));
+    check(
+      'genel kural dosyasında taslak sözü verilmez',
+      (await button('Kaydet').isVisible()) && text.includes('Genel kurallar kaydedildiği anda geçerli olur.') && !text.includes('taslak olarak durur'),
+      text.slice(300, 900),
+    );
+    await button('Kaydet').click();
+    check('genel kural dosyası: sonuç ilan saymaz', (await seen(/4 genel kural yazıldı/)) && !(await mainText()).includes('yeni ilan eklendi'), await mainText());
+    await link('Üniversiteyi aç').click();
+    check('kural dosyasının üniversitesi açılır', await K.heading('Kadir Has Üniversitesi'));
+    await seen(/Tezsiz Yüksek Lisans/);
+    const page = await mainText();
+    check(
+      'kural satırları ALES, not ortalaması ve yabancı dili özetler',
+      page.includes('ALES: En az 55 · Yabancı dil: YDS / e-YDS 65') && page.includes('ALES: En az 80 · Not ortalaması: 3,00 · Yabancı dil: YDS / e-YDS 65') && page.includes('ALES: İstenmiyor'),
+      page.slice(0, 1200),
+    );
+    check('ziyaretçi genel kuralları okur', (await publicRows('university_rules?select=id')).length === 5);
+
+    await upload(RULES_FILE);
+    await seen('2. Önizleme');
+    check('kural dosyası ikinci kez: değişiklik yok', (await button('Değişiklik yok').isDisabled()) && (await mainText()).includes('0 yeni, 0 değişecek, 4 aynı'), await mainText());
+  });
+
+  // 8. Üniversite, genel kural, program, elle dönem ilanı
+  await section('yönetim 8', async () => {
     await p.goto(BASE + '/yonetim/universiteler');
     check('üniversite listesi', (await K.heading('Üniversiteler')) && (await seen('Boğaziçi Üniversitesi')));
     await button('Üniversite ekle').click();
@@ -321,8 +365,8 @@ async function checks() {
     check('veritabanı: dönem ilanı ilanlarıyla birlikte silinir', left?.calls === 0 && left.listings === 0, JSON.stringify(left));
   });
 
-  // 8. Telefon ekranı ve bulunamayan kayıtlar
-  await section('yönetim 8', async () => {
+  // 9. Telefon ekranı ve bulunamayan kayıtlar
+  await section('yönetim 9', async () => {
     await p.setViewportSize({ width: 390, height: 800 });
     await p.goto(`${BASE}/yonetim/donem?id=${callId}`);
     await K.heading('Boğaziçi · 2026-2027 Bahar');

@@ -113,16 +113,23 @@ export function isInUse(error: unknown): boolean {
   return error instanceof DataError && IN_USE.has(error.code);
 }
 
-/** Hatayı yöneticiye gösterilecek cümleye çevirir. */
-export function errorMessage(error: unknown, duplicate = "Aynı kayıt zaten var."): string {
+/**
+ * Tablo, görünüm ya da fonksiyon veritabanında yok: Adım 3'ün SQL dosyası bu projede henüz çalıştırılmamış.
+ * PGRST205 / PGRST202: API'nin bildiği tablolar ve fonksiyonlar arasında yok. 42P01 / 42883: PostgreSQL'in kendi kodları.
+ */
+const NOT_INSTALLED = new Set(["PGRST205", "PGRST202", "42P01", "42883"]);
+
+/** Hatayı yöneticiye gösterilecek cümleye çevirir. `fallback`: tanınmayan hatalarda söylenecek cümle. */
+export function errorMessage(error: unknown, duplicate = "Aynı kayıt zaten var.", fallback = "Kaydedilemedi. Lütfen tekrar dene."): string {
   if (error instanceof UserError) return error.message;
   const code = error instanceof DataError ? error.code : "";
+  if (NOT_INSTALLED.has(code)) return "Yönetim panelinin tabloları bu veritabanında henüz kurulmamış. supabase/migrations/0004_listings.sql dosyası Supabase'de çalıştırılınca burası açılır.";
   if (code === "23505") return duplicate;
   if (IN_USE.has(code)) return "Buna bağlı başka kayıtlar olduğu için işlem yapılamadı.";
   if (code === "42501") return "Bu işlem için yetkin yok. Yönetici hesabıyla giriş yaptığından emin ol.";
   if (code === "23514" || code.startsWith("22")) return "Bir alan kurallara uymuyor; değerleri kontrol et.";
   if (code === "") return "Bağlantı kurulamadı. İnternetini kontrol edip tekrar dene.";
-  return "Kaydedilemedi. Lütfen tekrar dene.";
+  return fallback;
 }
 
 type Result<T> = { data: T | null; error: Failure | null };

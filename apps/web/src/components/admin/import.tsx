@@ -62,6 +62,20 @@ async function existingState(payload: ImportPayload): Promise<ExistingState> {
 type Preview = { fileName: string | null; issues: Issue[]; documents: { payload: ImportPayload; plan: ImportPlan }[] };
 type Outcome = { payload: ImportPayload; summary?: ImportSummary; error?: string };
 
+/** Kayıt sonucunun cümlesi. Yalnızca genel kural taşıyan belgede ilan sayıları yazılmaz. */
+function summaryText(summary: ImportSummary): string {
+  return [
+    summary.call_id && `${summary.listings_new} yeni ilan eklendi, ${summary.listings_updated} ilan güncellendi, ${summary.listings_unchanged} ilan aynı kaldı.`,
+    summary.programs_new > 0 && `${summary.programs_new} yeni program açıldı.`,
+    summary.rules > 0 && `${summary.rules} genel kural yazıldı.`,
+  ]
+    .filter(Boolean)
+    .join(" ");
+}
+
+/** Genel kuralların taslak durumu yoktur; kaydet düğmesinin yanındaki açıklama bunu saklamamalı. */
+const RULES_NOTE = "Genel kurallar kaydedildiği anda geçerli olur.";
+
 const STATUS: Record<RowStatus, { label: string; tone: "info" | "warn" | "neutral" }> = {
   yeni: { label: "Yeni", tone: "info" },
   degisti: { label: "Değişecek", tone: "warn" },
@@ -116,7 +130,7 @@ export function ImportPage() {
       }
       setPreview({ fileName: name, issues: parsed.issues, documents });
     } catch (e) {
-      setError(errorMessage(e));
+      setError(errorMessage(e, undefined, "Dosya incelenemedi. Lütfen tekrar dene."));
     } finally {
       setBusy(false);
     }
@@ -157,6 +171,8 @@ export function ImportPage() {
   const work = preview?.documents.some((d) => hasWork(d.plan)) ?? false;
   const live = preview?.documents.some((d) => d.plan.call?.published) ?? false;
   const allNew = preview?.documents.every((d) => !d.plan.call || d.plan.call.status === "yeni") ?? false;
+  const hasCall = preview?.documents.some((d) => d.plan.call) ?? false;
+  const hasRules = preview?.documents.some((d) => d.plan.rules.some((rule) => rule.status !== "ayni")) ?? false;
 
   return (
     <>
@@ -172,12 +188,7 @@ export function ImportPage() {
             {outcomes.map((outcome, i) =>
               outcome.summary ? (
                 <Notice key={i} tone="ok" title={`${documentTitle(outcome.payload)} kaydedildi`}>
-                  <p>
-                    {outcome.summary.listings_new} yeni ilan eklendi, {outcome.summary.listings_updated} ilan güncellendi, {outcome.summary.listings_unchanged} ilan aynı
-                    kaldı.
-                    {outcome.summary.programs_new > 0 && ` ${outcome.summary.programs_new} yeni program açıldı.`}
-                    {outcome.summary.rules > 0 && ` ${outcome.summary.rules} genel kural yazıldı.`}
-                  </p>
+                  <p>{summaryText(outcome.summary)}</p>
                   {outcome.summary.call_id ? (
                     <Link href={`/yonetim/donem?id=${outcome.summary.call_id}`} className="mt-2 inline-block font-extrabold underline">
                       Dönem ilanını aç
@@ -262,7 +273,17 @@ export function ImportPage() {
                 {!blocked && preview.documents.length > 0 && (
                   <div className="flex flex-wrap items-center gap-3 border-t-2 border-navy-soft pt-4">
                     <button type="button" disabled={busy || !work} onClick={save} className="btn btn-primary">
-                      {busy ? "Kaydediliyor..." : !work ? "Değişiklik yok" : live ? "Kaydet ve yayındakini güncelle" : allNew ? "Taslak olarak kaydet" : "Değişiklikleri kaydet"}
+                      {busy
+                        ? "Kaydediliyor..."
+                        : !work
+                          ? "Değişiklik yok"
+                          : live
+                            ? "Kaydet ve yayındakini güncelle"
+                            : !hasCall
+                              ? "Kaydet"
+                              : allNew
+                                ? "Taslak olarak kaydet"
+                                : "Değişiklikleri kaydet"}
                     </button>
                     <button type="button" disabled={busy} onClick={reset} className="btn btn-outline btn-sm">
                       Vazgeç
@@ -272,7 +293,9 @@ export function ImportPage() {
                         ? "Bu dosyadaki her şey zaten kayıtlı."
                         : live
                           ? "Bu dönem ilanı yayında: kaydettiğin anda değişiklikler herkese görünür."
-                          : "Kaydedilenler taslak olarak durur; sen yayına alana kadar kimse göremez."}
+                          : !hasCall
+                            ? RULES_NOTE
+                            : `Dönem ilanı taslak olarak durur; sen yayına alana kadar kimse göremez.${hasRules ? ` ${RULES_NOTE}` : ""}`}
                     </p>
                   </div>
                 )}

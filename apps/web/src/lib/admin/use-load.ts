@@ -23,7 +23,7 @@ export function useLoad<T>(key: string | null, load: () => Promise<T>) {
         if (!cancelled) setState({ key, data });
       },
       (error: unknown) => {
-        if (!cancelled) setState({ key, error: errorMessage(error) });
+        if (!cancelled) setState({ key, error: errorMessage(error, undefined, "Yüklenemedi. Sayfayı yenileyip tekrar dene.") });
       },
     );
     return () => {
