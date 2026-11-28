@@ -64,16 +64,19 @@ export function ConfirmEmailStep({ email, password, adoptPassword = false, sendE
       return "E-postan henüz doğrulanmamış görünüyor. E-postandaki linke tıkladıktan sonra tekrar dene.";
     }
     if (error.code === "invalid_credentials") {
-      // Daha önce başka bir şifreyle başlanıp yarım kalmış kayıtlarda ilk şifre geçerli kalır.
-      return "E-postan doğrulandı ama bu şifreyle giriş yapılamadı. Giriş sayfasındaki “Şifremi unuttum” ile yeni şifre belirleyebilirsin.";
+      // Daha önce başka bir şifreyle başlanıp yarım kalmış kayıtlarda ilk şifre geçerli kalır. Sunucu şifreyi
+      // e-postanın doğrulanıp doğrulanmadığından önce denetler; bu yanıt e-postanın doğrulandığını göstermez.
+      return "Bu şifreyle giriş yapılamadı. E-postandaki linke henüz tıklamadıysan önce ona bu tarayıcıda tıkla. Tıkladıysan giriş sayfasındaki “Şifremi unuttum” ile yeni şifre belirleyebilirsin.";
     }
     return authErrorMessage(error);
   }, [email, password, router]);
 
   return (
     <CheckEmail onResend={resend} onContinue={proceed} initialError={sendError}>
-      <strong className="font-extrabold wrap-anywhere">{email}</strong> adresine bir doğrulama linki gönderdik. Linke tıkla, sonra
-      bu sayfaya dön.
+      <strong className="font-extrabold wrap-anywhere">{email}</strong>{" "}
+      {sendError
+        ? "adresine yeni bir doğrulama linki gönderemedik. Daha önce gelen bir link varsa onu kullanabilirsin; linke tıkla, sonra bu sayfaya dön."
+        : "adresine bir doğrulama linki gönderdik. Linke tıkla, sonra bu sayfaya dön."}
     </CheckEmail>
   );
 }

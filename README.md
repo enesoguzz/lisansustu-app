@@ -27,4 +27,4 @@ pnpm lint
 pnpm e2e        # siteyi derler ve tarayıcıda uçtan uca dener (üyelik ve yönetim paneli)
 ```
 
-Uçtan uca testler gerçek Supabase projesine dokunmaz: site, depodaki SQL dosyalarından kurulan yerel bir veritabanına bağlanır ve hiçbir e-posta gönderilmez.
+Uçtan uca testler gerçek Supabase projesine dokunmaz: site, depodaki SQL dosyalarından kurulan yerel bir veritabanına bağlanır ve hiçbir e-posta gönderilmez. Çalışmaları için bilgisayarda Playwright ve Chromium kurulu olmalı, 3123 ve 54321 numaralı kapılar boş olmalıdır. Tek bir takım `apps/web` içinde `node e2e/uyelik.cjs` ya da `node e2e/yonetim.cjs` ile koşar.

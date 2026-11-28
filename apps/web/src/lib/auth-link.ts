@@ -4,7 +4,7 @@ import { createClient } from "./supabase/client";
 export type LinkParams = {
   /** Oturuma çevrilecek tek kullanımlık kod. */
   code: string | null;
-  /** Oturum bilgisi doğrudan adreste geldiyse. */
+  /** Oturum bilgisi doğrudan adreste geldiyse. Yalnızca # işaretinden sonraki kısımdan okunur. */
   accessToken: string | null;
   refreshToken: string | null;
   /** Link geçersizse, süresi dolmuşsa ya da işlem tamamlanmadıysa dolu gelir. */
@@ -13,7 +13,10 @@ export type LinkParams = {
   cancelled: boolean;
 };
 
-/** Bilgiler adresin soru işaretinden sonraki ya da # işaretinden sonraki kısmında gelebilir. */
+/**
+ * Kod ve hata bilgisi adresin soru işaretinden sonraki ya da # işaretinden sonraki kısmında gelebilir.
+ * Oturum bilgisini Supabase yalnızca # işaretinden sonra gönderir; o kısım sunucuya ve kayıtlara gitmez.
+ */
 export function readLinkParams(href: string): LinkParams {
   const url = new URL(href);
   const hash = new URLSearchParams(url.hash.replace(/^#/, ""));
@@ -22,8 +25,8 @@ export function readLinkParams(href: string): LinkParams {
   const errorCode = get("error_code");
   return {
     code: get("code"),
-    accessToken: get("access_token"),
-    refreshToken: get("refresh_token"),
+    accessToken: hash.get("access_token") || null,
+    refreshToken: hash.get("refresh_token") || null,
     error: errorCode || error || get("error_description"),
     // Supabase kendi hatalarında ayrıca bir hata kodu gönderir; Google'dan gelen vazgeçmede kod olmaz.
     cancelled: error === "access_denied" && !errorCode,
@@ -54,13 +57,6 @@ function once(key: string, run: () => Promise<{ error: unknown }>): Promise<bool
 /** Linkteki kodu oturuma çevirir. Link başka bir tarayıcıda açıldıysa ya da kod kullanılmışsa false döner. */
 export function signInWithCode(code: string): Promise<boolean> {
   return once(`kod:${code}`, () => createClient().auth.exchangeCodeForSession(code));
-}
-
-/** Adreste gelen oturum bilgisini sunucuya doğrulatıp oturum açar. */
-export function signInWithTokens(accessToken: string, refreshToken: string): Promise<boolean> {
-  return once(`oturum:${accessToken}`, () =>
-    createClient().auth.setSession({ access_token: accessToken, refresh_token: refreshToken }),
-  );
 }
 
 /** Oturum açıkken true döner. */

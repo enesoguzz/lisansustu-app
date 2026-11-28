@@ -4,12 +4,12 @@ import { useId } from "react";
 import clsx from "clsx";
 import { Mascot } from "@/components/mascot";
 
-export function AuthCard({ title, subtitle, children }: { title: string; subtitle?: string; children: React.ReactNode }) {
+export function AuthCard({ title, subtitle, children }: { title: string; subtitle?: React.ReactNode; children: React.ReactNode }) {
   return (
     <section className="mx-auto flex w-full max-w-md flex-col items-center px-4 py-12">
       <Mascot className="h-24 w-24" />
       <h1 className="mt-4 text-center text-3xl font-black text-navy">{title}</h1>
-      {subtitle && <p className="mt-2 text-center font-semibold text-navy-muted">{subtitle}</p>}
+      {subtitle && <p className="mt-2 max-w-full text-center font-semibold wrap-anywhere text-navy-muted">{subtitle}</p>}
       <div className="mt-8 w-full">{children}</div>
     </section>
   );
@@ -35,7 +35,8 @@ export function Field({ label, hint, className, ...props }: FieldProps) {
       <input
         id={id}
         className={clsx(
-          "w-full rounded-2xl border-2 border-navy-soft bg-white px-4 py-3 font-semibold text-navy outline-none transition-colors placeholder:text-navy-muted/50 focus:border-navy",
+          // outline-hidden: çizgi normalde görünmez, yüksek karşıtlık kipinde (kenarlık rengi kaybolduğunda) odağı gösterir.
+          "w-full rounded-2xl border-2 border-navy-soft bg-white px-4 py-3 font-semibold text-navy outline-hidden transition-colors placeholder:text-navy-muted/50 focus:border-navy",
           className,
         )}
         {...props}

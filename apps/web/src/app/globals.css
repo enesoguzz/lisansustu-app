@@ -64,6 +64,8 @@ body {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
+    /* Sonsuz dönen animasyonlar (bekleme iskeleti gibi) bir kez oynayıp dursun. */
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }

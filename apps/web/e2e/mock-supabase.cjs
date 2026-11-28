@@ -14,6 +14,8 @@ const links = new Map(); // e-postadaki linkin anahtarı -> { email, kind, chall
 const codes = new Map(); // tek kullanımlık kod -> { email, challenge }
 const oauthStates = new Map(); // Google'a gidiş -> { redirectTo, challenge }
 const log = [];
+/** Sahte sunucunun tanımadığı istekler ve beklenmeyen hatalar. Deneme sonunda boş olmalıdır. */
+const unexpected = [];
 
 /** Denemelerin değiştirebildiği davranışlar. */
 const settings = {
@@ -167,6 +169,7 @@ const server = http.createServer((req, res) => {
       await handle(req, res, raw);
     } catch (e) {
       console.error('mock: beklenmeyen hata', e);
+      unexpected.push(`${req.method} ${req.url}: ${e && e.message}`);
       send(res, 500, { msg: 'mock: ' + (e && e.message) });
     }
   });
@@ -310,6 +313,7 @@ async function handle(req, res, raw) {
     });
     return res.end(result.body ?? '');
   }
+  unexpected.push(`${req.method} ${path}: bilinmeyen yol`);
   send(res, 404, { msg: 'mock: bilinmeyen yol ' + path });
 }
 
@@ -335,10 +339,19 @@ async function addMember({ email, password, name, admin = false }) {
   return u;
 }
 
+/**
+ * Bir üyenin geçerli oturum bilgisi. Başkasının hazırladığı bir linki denemek için kullanılır:
+ * hesabın sahibi kendi oturum bilgisini bir adrese yazıp başkasına gönderebilir.
+ */
+const tokensFor = (email) => {
+  const { access_token, refresh_token } = session(users.get(email));
+  return { access_token, refresh_token };
+};
+
 /** Veritabanına kısıtsız sorgu: denemelerin sonucu doğrulaması için. */
 const sql = (text, params) => db.rows(text, params);
 
 /** Bir adrese gönderilen e-postalar (eskiden yeniye). */
 const mailsTo = (email, kind) => mails.filter((m) => m.to === email && (!kind || m.kind === kind));
 
-module.exports = { startMock, settings, users, mailsTo, requestLog: log, makeAdmin, addMember, sql };
+module.exports = { startMock, settings, users, mailsTo, requestLog: log, unexpectedRequests: unexpected, tokensFor, makeAdmin, addMember, sql };

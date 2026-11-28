@@ -59,8 +59,13 @@ Doğrulama e-postadaki linkle yapılır (kod yok). Site üç dönüş sayfası k
 | `/giris/google` | Google ekranından dönülünce |
 
 - Kayıt linki, kaydın yapıldığı tarayıcıya bağlıdır. O tarayıcıda açılırsa oturum doğrudan açılır. Başka bir cihazda ya da e-posta uygulamasının kendi tarayıcısında açılırsa e-posta yine doğrulanır; üye giriş yapar ya da kayıt olduğu sayfaya dönüp "Doğruladım, devam et" der.
-- Şifre yenileme linki her cihazda çalışır, çünkü şifresini unutan kişi başka yoldan giriş yapamaz.
+- Şifre yenileme linki her cihazda çalışır, çünkü şifresini unutan kişi başka yoldan giriş yapamaz. Linkteki oturum sitenin oturumuna yazılmaz: yalnızca linkin açıldığı sekmede durur ve yalnızca o hesabın yeni şifresini kaydetmek için kullanılır. Site oturumu, üye yeni şifresini kaydettikten sonra o şifreyle açılır. Böylece başkasının hazırladığı bir link, onu açan kişinin oturumunu değiştiremez.
+- Linkteki oturum bilgisi adresin yalnızca `#` işaretinden sonraki kısmından okunur. Sunucuya ulaşılamazsa link yanmaz; sayfa "Tekrar dene" der.
 - Aynı e-postayla daha önce başlanıp doğrulanmamış bir kayıt varsa Supabase o kayıttaki şifreyi ve bilgileri saklar. Link kaydın yapıldığı tarayıcıda açılırsa site, son yazılan şifreyi geçerli kılar; başka cihazda açılırsa üye "Şifremi unuttum" ile şifresini belirler.
+
+"Çıkış yap" yalnızca o cihazdaki oturumu kapatır ve internet bağlantısı olmasa da o tarayıcıdan çıkış yapar.
+
+Sayfalar sunucuda oturuma bakmaz; oturum tarayıcıda tutulur ve veriyi veritabanındaki erişim kuralları korur. Bir sayfa ileride sunucuda oturum okuyacaksa, oturum çerezini yenileyen ara katman (`proxy.ts`) o zaman eklenir: yanıtın önbelleğe alınmasını engelleyen başlıkları geçirmeli ve Supabase yanıt vermezse sayfayı bekletmemelidir.
 
 ## 4. Google ile giriş
 
@@ -77,6 +82,15 @@ Supabase'in kendi e-posta servisi yalnızca deneme içindir:
 - Yalnızca Supabase proje ekibindeki adreslere gönderir. Başka bir adresle kayıt olunmaya çalışılırsa site "Kayıtlar henüz herkese açık değil" der.
 - Projenin tamamı için saatte 2 e-posta gönderir.
 - Şablonların düzenlenmesine izin vermez; e-postalar İngilizce gider.
+
+### Kayıtlar herkese açılmadan önce
+
+E-posta servisi bağlandığı anda herkes kayıt olabilir. Aşağıdakiler ondan **önce** tamamlanmalıdır. Bugün e-postayla yalnızca proje ekibindeki adresler kayıt olabildiği için acil değildir.
+
+1. **Şifre ve kişisel bilgiler e-posta doğrulandıktan sonra alınmalı.** Bugün kayıt formu şifreyi, telefonu, üniversiteyi ve aydınlatma metni onayını e-posta doğrulanmadan önce gönderir; o anda e-postanın gerçekten formu dolduran kişiye ait olduğu bilinmez. Kayıt iki adıma bölünmelidir: kayıtta yalnızca e-posta alınır, şifre ile diğer bilgiler linke tıklandıktan sonra açılan adımda girilir.
+2. **Bot koruması.** Authentication > Attack Protection altında CAPTCHA açılmalı ve site kayıt, giriş, yeniden gönderme ve şifre yenileme isteklerinde doğrulama bilgisini göndermelidir. E-posta gönderimi saatlik bir sınıra bağlı olduğu için otomatik istekler bu sınırı gerçek üyelerin aleyhine tüketebilir.
+3. **Dönüş adresleri daraltılmalı.** Redirect URLs listesinden önizleme adresi kalıbı ve `localhost` çıkarılmalıdır; önizleme ve yerel çalışma için ayrı bir Supabase projesi kullanılır.
+4. **KVKK Aydınlatma Metni** yayımlanmalı ve onay kutusunun metni hukuken gözden geçirilmelidir.
 
 Gerçek kullanıcılar için **Authentication > Emails > SMTP Settings** altında bir e-posta servisi bağlanmalıdır. Resend için değerler:
 
