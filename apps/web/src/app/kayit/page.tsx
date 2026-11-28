@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { ComingSoon } from "@/components/coming-soon";
+import { SignupForm } from "@/components/auth/signup-form";
+import { Fresh } from "@/components/auth/fresh";
 
 export const metadata: Metadata = { title: "Ücretsiz başla" };
 
 export default function Page() {
-  return <ComingSoon title="Ücretsiz başla" text="Üyelik sistemi bir sonraki adımda açılacak." />;
+  return (
+    <Fresh>
+      <SignupForm />
+    </Fresh>
+  );
 }

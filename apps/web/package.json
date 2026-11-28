@@ -6,10 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "e2e": "node e2e/uyelik.cjs"
   },
   "dependencies": {
     "@lisansustu/core": "workspace:*",
+    "@supabase/ssr": "0.12.7",
+    "@supabase/supabase-js": "2.119.2",
     "clsx": "^2.1.1",
     "lucide-react": "^1.82.0",
     "motion": "^14.14.0",

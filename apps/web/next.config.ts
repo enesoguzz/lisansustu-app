@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // packages/core TypeScript kaynağı olarak paylaşılıyor; Next derlemesine dahil et.
+  transpilePackages: ["@lisansustu/core"],
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {
