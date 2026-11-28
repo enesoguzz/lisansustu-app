@@ -1,0 +1,17 @@
+{
+  "name": "@lisansustu/db",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.6.1",
+    "@lisansustu/core": "workspace:*",
+    "@types/node": "^22",
+    "typescript": "^5.9.3",
+    "vitest": "^5.1.2"
+  }
+}

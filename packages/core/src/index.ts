@@ -2,13 +2,9 @@
 // Adım 5'te kabul ihtimali hesaplaması buraya eklenecek.
 
 export * from "./validation";
-
-export const DEGREE_TYPES = {
-  "yl-tezli": "Tezli Yüksek Lisans",
-  "yl-tezsiz": "Tezsiz Yüksek Lisans",
-  "yl-uzaktan": "Uzaktan Eğitim Yüksek Lisans",
-  doktora: "Doktora",
-  "butunlesik-doktora": "Bütünleşik Doktora",
-} as const;
-
-export type DegreeType = keyof typeof DEGREE_TYPES;
+export * from "./catalog";
+export * from "./text";
+export * from "./dates";
+export * from "./schema";
+export * from "./listing";
+export * from "./import";
