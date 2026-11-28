@@ -1,0 +1,3704 @@
+{
+  "format": "lisansustu-ilan/1",
+  "university": {
+    "slug": "bogazici",
+    "name": "Boğaziçi Üniversitesi",
+    "short_name": "Boğaziçi",
+    "city": "İstanbul",
+    "kind": "devlet",
+    "website": "https://bogazici.edu.tr"
+  },
+  "call": {
+    "academic_year": 2026,
+    "semester": "bahar",
+    "title": "2026-2027 Bahar Lisansüstü Başvuruları (I. Öğretim)",
+    "application_start": "2026-12-14T10:00:00+03:00",
+    "application_end": "2026-12-21T17:00:00+03:00",
+    "timeline": [
+      {
+        "label": "DBS (dil hazırlık sınıfına başvuranlar için düzey belirleme sınavı)",
+        "date": "2026-12-23"
+      },
+      {
+        "label": "BUEPT (İngilizce yeterlik sınavı)",
+        "date": "2026-12-24"
+      },
+      {
+        "label": "Bilim sınavları",
+        "date": "2026-12-25",
+        "endDate": "2026-12-29",
+        "note": "25, 28 ve 29 Aralık; her programın günü ve saati kendi ilanında yazar."
+      },
+      {
+        "label": "Asıl listeden kabul edilenlerin kaydı",
+        "date": "2027-01-11"
+      }
+    ],
+    "notes": "Programın istediği ALES/GRE/GMAT ve İngilizce yeterlik belgesi olmadan da başvurulabilir; kabul alan aday bu belgeleri en geç kayıt tarihine kadar sunar. Bazı programlar bu belgeler olmadan başvuru kabul etmeyebilir, programın ilan ettiği şartlara bakın.\nAksi belirtilmedikçe yüksek lisans programları tezlidir ve doktora programlarına yüksek lisans derecesiyle başvurulur.\nBelgelerin denetimini programlar yapar; kayıt hakkı kazanan aday ilan edilen şartları eksiksiz sağlamak ve belgelemek zorundadır.",
+    "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Tum",
+    "source_checked_on": "2026-11-28"
+  },
+  "listings": [
+    {
+      "program": {
+        "name": "Türkiye Cumhuriyeti Tarihi",
+        "institute": "Atatürk İlkeleri ve İnkılap Tarihi Enstitüsü",
+        "field": "beseri",
+        "url": "https://ata.bogazici.edu.tr/tr"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "main": 6,
+          "prep": 0,
+          "source": "6 (Dil hazırlık sınıfı kontenjanı yoktur)"
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "EA",
+              "min": 75
+            },
+            {
+              "type": "SAY",
+              "min": 75
+            },
+            {
+              "type": "SOZ",
+              "min": 75
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 149
+            }
+          ],
+          "source": "EA: 75 veya SAY: 75 veya SÖZ: 75"
+        },
+        "gpa": {
+          "min4": 2.5,
+          "source": "GNO: 2.50/4.00"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            }
+          ]
+        },
+        "exam": {
+          "written": {
+            "date": "2026-12-25",
+            "time": "10.00",
+            "place": "Daha sonra ilan edilecek"
+          },
+          "interview": {
+            "date": "2026-12-29",
+            "time": "10.00",
+            "place": "Çevrim içi"
+          }
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript"
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Amaç yazısı"
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2
+          }
+        ],
+        "contact": {
+          "phone": "0212 359 6580",
+          "url": "http://www.ata.bogazici.edu.tr"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Turkiye_cumhuriyeti_Tarihi"
+    },
+    {
+      "program": {
+        "name": "Türkiye Cumhuriyeti Tarihi",
+        "institute": "Atatürk İlkeleri ve İnkılap Tarihi Enstitüsü",
+        "field": "beseri",
+        "url": "https://ata.bogazici.edu.tr/tr"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "main": 2,
+          "prep": 0,
+          "source": "2 (Dil hazırlık sınıfı kontenjanı yoktur)"
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "EA",
+              "min": 75
+            },
+            {
+              "type": "SAY",
+              "min": 75
+            },
+            {
+              "type": "SOZ",
+              "min": 75
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 149
+            }
+          ],
+          "source": "EA: 75 veya SAY: 75 veya SÖZ: 75"
+        },
+        "gpa": {
+          "masterMin4": 3,
+          "note": "İlanda yalnızca “GNO” yazıyor, hangi derecenin ortalaması olduğu belirtilmemiş. Doktoraya yüksek lisans derecesiyle başvurulduğu için yüksek lisans ortalaması olarak girildi; emin olmak için programa danışın.",
+          "source": "GNO: 3.00/4.00"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            },
+            {
+              "label": "Doktora yabancı dil şartı",
+              "options": [
+                {
+                  "exam": "YDS",
+                  "min": 55
+                },
+                {
+                  "exam": "YOKDIL",
+                  "min": 55
+                },
+                {
+                  "exam": "DIGER",
+                  "name": "e-TEP",
+                  "grade": "YDS 55 karşılığı"
+                }
+              ],
+              "note": "Üniversitelerarası Kurulca kabul edilen bir sınavdan eşdeğer puan da geçerlidir. BUEPT, IELTS ya da Boğaziçi mezunlarına tanınan İngilizce muafiyeti bu şartı karşılamaz."
+            }
+          ]
+        },
+        "exam": {
+          "interview": {
+            "date": "2026-12-25",
+            "time": "10.00",
+            "place": "Çevrim içi"
+          }
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript",
+            "detail": "Lisans ve yüksek lisans transkripti."
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans ve yüksek lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Amaç yazısı"
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2
+          },
+          {
+            "label": "Yüksek lisans tezi",
+            "detail": "Bir kopyası Enstitü Sekreterliğine teslim edilir."
+          }
+        ],
+        "contact": {
+          "phone": "0212 359 6580",
+          "url": "http://www.ata.bogazici.edu.tr"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Turkiye_cumhuriyeti_Tarihi"
+    },
+    {
+      "program": {
+        "name": "Biyomedikal Mühendisliği",
+        "institute": "Biyomedikal Mühendisliği Enstitüsü",
+        "field": "muhendislik",
+        "url": "https://bme.bogazici.edu.tr/tr"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "main": 30,
+          "prep": 0,
+          "source": "30 (Dil hazırlık sınıfı kontenjanı yoktur)"
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "SAY",
+              "min": 70
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 153
+            }
+          ],
+          "source": "SAY: 70"
+        },
+        "gpa": {
+          "min4": 2.5,
+          "source": "GNO: 2.50/ 4.00"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            }
+          ]
+        },
+        "exam": {
+          "interview": {
+            "date": "2026-12-28",
+            "place": "Kandilli Kampüsü, Biyomedikal Mühendisliği Enstitüsü Toplantı Salonu",
+            "note": "Saat için programa danışın."
+          },
+          "note": "Yalnızca ön değerlendirmeyi geçen adaylar mülakata çağrılır."
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript"
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Amaç yazısı",
+            "detail": "Enstitünün amaç yazısı şablonu doldurulup başvuru sistemine yüklenir."
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2
+          }
+        ],
+        "contact": {
+          "phone": "0216 516 3433",
+          "email": "bmesekreterlik@bogazici.edu.tr",
+          "url": "https://bme.bogazici.edu.tr"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Biyomedikal_Muhendisligi"
+    },
+    {
+      "program": {
+        "name": "Biyomedikal Mühendisliği",
+        "institute": "Biyomedikal Mühendisliği Enstitüsü",
+        "field": "muhendislik",
+        "url": "https://bme.bogazici.edu.tr/tr"
+      },
+      "degree": "butunlesik-doktora",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Biyomedikal_Muhendisligi"
+    },
+    {
+      "program": {
+        "name": "Biyomedikal Mühendisliği",
+        "institute": "Biyomedikal Mühendisliği Enstitüsü",
+        "field": "muhendislik",
+        "url": "https://bme.bogazici.edu.tr/tr"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "main": 30,
+          "prep": 0,
+          "source": "30 (Dil hazırlık sınıfı kontenjanı yoktur)"
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "SAY",
+              "min": 70
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 153
+            }
+          ],
+          "source": "SAY: 70"
+        },
+        "gpa": {
+          "masterMin4": 3,
+          "note": "İlanda yalnızca “GNO” yazıyor, hangi derecenin ortalaması olduğu belirtilmemiş. Doktoraya yüksek lisans derecesiyle başvurulduğu için yüksek lisans ortalaması olarak girildi; emin olmak için programa danışın.",
+          "source": "GNO: 3.00/4.00"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            },
+            {
+              "label": "Doktora yabancı dil şartı",
+              "options": [
+                {
+                  "exam": "YDS",
+                  "min": 55
+                },
+                {
+                  "exam": "YOKDIL",
+                  "min": 55
+                },
+                {
+                  "exam": "DIGER",
+                  "name": "e-TEP",
+                  "grade": "YDS 55 karşılığı"
+                }
+              ],
+              "note": "Üniversitelerarası Kurulca kabul edilen bir sınavdan eşdeğer puan da geçerlidir. BUEPT, IELTS ya da Boğaziçi mezunlarına tanınan İngilizce muafiyeti bu şartı karşılamaz."
+            }
+          ]
+        },
+        "exam": {
+          "interview": {
+            "date": "2026-12-28",
+            "place": "Biyomedikal Mühendisliği Enstitüsü Toplantı Salonu",
+            "note": "Saat için programa danışın."
+          },
+          "note": "Yalnızca ön değerlendirmeyi geçen adaylar mülakata çağrılır."
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript",
+            "detail": "Lisans ve yüksek lisans transkripti."
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans ve yüksek lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Amaç yazısı",
+            "detail": "Enstitünün amaç yazısı şablonu doldurulup başvuru sistemine yüklenir."
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2
+          },
+          {
+            "label": "Yüksek lisans tezi ve yayınlar",
+            "detail": "Başvuruda “diğer belgeler” alanına yüklenir."
+          }
+        ],
+        "contact": {
+          "phone": "0216 516 3433",
+          "email": "bme@bogazici.edu.tr",
+          "url": "https://bme.bogazici.edu.tr/"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Biyomedikal_Muhendisligi"
+    },
+    {
+      "program": {
+        "name": "Çevre Bilimleri",
+        "institute": "Çevre Bilimleri Enstitüsü",
+        "field": "fen",
+        "url": "https://iesc.bogazici.edu.tr/tr"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/cevre_Bilimleri"
+    },
+    {
+      "program": {
+        "name": "Çevre Bilimleri",
+        "institute": "Çevre Bilimleri Enstitüsü",
+        "field": "fen",
+        "url": "https://iesc.bogazici.edu.tr/tr"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "main": 10,
+          "prep": 0,
+          "source": "10 (Dil hazırlık sınıfı kontenjanı yoktur)"
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "EA",
+              "min": 70
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 153
+            }
+          ],
+          "source": "EA: 70"
+        },
+        "gpa": {
+          "masterMin4": 3.1,
+          "note": "İlanda yalnızca “GNO” yazıyor, hangi derecenin ortalaması olduğu belirtilmemiş. Doktoraya yüksek lisans derecesiyle başvurulduğu için yüksek lisans ortalaması olarak girildi; emin olmak için programa danışın.",
+          "source": "GNO: 3.10/4.00"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            },
+            {
+              "label": "Doktora yabancı dil şartı",
+              "options": [
+                {
+                  "exam": "YDS",
+                  "min": 55
+                },
+                {
+                  "exam": "YOKDIL",
+                  "min": 55
+                },
+                {
+                  "exam": "DIGER",
+                  "name": "e-TEP",
+                  "grade": "YDS 55 karşılığı"
+                }
+              ],
+              "note": "Üniversitelerarası Kurulca kabul edilen bir sınavdan eşdeğer puan da geçerlidir. BUEPT, IELTS ya da Boğaziçi mezunlarına tanınan İngilizce muafiyeti bu şartı karşılamaz."
+            }
+          ]
+        },
+        "exam": {
+          "written": {
+            "date": "2026-12-28",
+            "time": "10.00",
+            "place": "Çevre Bilimleri Enstitüsü"
+          },
+          "interview": {
+            "date": "2026-12-29",
+            "time": "10.00",
+            "place": "Çevre Bilimleri Enstitüsü Büyük Toplantı Salonu"
+          }
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript",
+            "detail": "Lisans ve yüksek lisans transkripti."
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans ve yüksek lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2
+          }
+        ],
+        "contact": {
+          "phone": "0212 359 6409",
+          "url": "https://iesc.bogazici.edu.tr/tr"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/cevre_Bilimleri"
+    },
+    {
+      "program": {
+        "name": "Çevre Teknolojisi",
+        "institute": "Çevre Bilimleri Enstitüsü",
+        "field": "muhendislik",
+        "url": "https://iesc.bogazici.edu.tr/tr"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/cevre_Teknolojisi"
+    },
+    {
+      "program": {
+        "name": "Çevre Teknolojisi",
+        "institute": "Çevre Bilimleri Enstitüsü",
+        "field": "muhendislik",
+        "url": "https://iesc.bogazici.edu.tr/tr"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "main": 10,
+          "prep": 0,
+          "source": "10 (Dil hazırlık sınıfı kontenjanı yoktur)"
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "EA",
+              "min": 70
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 153
+            }
+          ],
+          "source": "EA: 70"
+        },
+        "gpa": {
+          "masterMin4": 3.1,
+          "note": "İlanda yalnızca “GNO” yazıyor, hangi derecenin ortalaması olduğu belirtilmemiş. Doktoraya yüksek lisans derecesiyle başvurulduğu için yüksek lisans ortalaması olarak girildi; emin olmak için programa danışın.",
+          "source": "GNO: 3.10/4.00"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            },
+            {
+              "label": "Doktora yabancı dil şartı",
+              "options": [
+                {
+                  "exam": "YDS",
+                  "min": 55
+                },
+                {
+                  "exam": "YOKDIL",
+                  "min": 55
+                },
+                {
+                  "exam": "DIGER",
+                  "name": "e-TEP",
+                  "grade": "YDS 55 karşılığı"
+                }
+              ],
+              "note": "Üniversitelerarası Kurulca kabul edilen bir sınavdan eşdeğer puan da geçerlidir. BUEPT, IELTS ya da Boğaziçi mezunlarına tanınan İngilizce muafiyeti bu şartı karşılamaz."
+            }
+          ]
+        },
+        "exam": {
+          "written": {
+            "date": "2026-12-28",
+            "time": "10.00",
+            "place": "Çevre Bilimleri Enstitüsü"
+          },
+          "interview": {
+            "date": "2026-12-29",
+            "time": "10.00",
+            "place": "Çevre Bilimleri Enstitüsü Büyük Toplantı Salonu"
+          }
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript",
+            "detail": "Lisans ve yüksek lisans transkripti."
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans ve yüksek lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2
+          }
+        ],
+        "contact": {
+          "phone": "0212 359 7011",
+          "url": "https://iesc.bogazici.edu.tr/tr"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/cevre_Teknolojisi"
+    },
+    {
+      "program": {
+        "name": "Bilgisayar Mühendisliği",
+        "institute": "Fen Bilimleri Enstitüsü",
+        "field": "muhendislik",
+        "url": "https://cmpe.bogazici.edu.tr/"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "main": 30,
+          "prep": 1,
+          "source": "30 (Esas sınıf) + 1 (Dil hazırlık sınıfı)"
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "SAY",
+              "min": 70
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 153
+            }
+          ],
+          "source": "SAY: 70"
+        },
+        "gpa": {
+          "min4": 2.5,
+          "source": "GNO: 2.50/4.00",
+          "variants": [
+            {
+              "when": "Lisans, ÇAP ya da yan dal derecesi Bilgisayar Mühendisliği ya da yakın bir alandan olmayan adaylar",
+              "min4": 2.6
+            }
+          ]
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            }
+          ]
+        },
+        "exam": {
+          "written": {
+            "date": "2026-12-25",
+            "time": "09.00-12.00",
+            "place": "Bilgisayar Mühendisliği Binası"
+          },
+          "note": "Yalnızca ön değerlendirmeyi geçen adaylar mülakata çağrılır. Ön değerlendirme sonucu mülakattan önce e-postayla bildirilir."
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript"
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2,
+            "detail": "Boğaziçi Bilgisayar Mühendisliği öğrenci ve mezunlarından istenmez."
+          }
+        ],
+        "contact": {
+          "phone": "0212 359 4523 - 4524",
+          "email": "cmpe.basvur@bogazici.edu.tr",
+          "url": "https://cmpe.bogazici.edu.tr/"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Bilgisayar_Muhendisligi"
+    },
+    {
+      "program": {
+        "name": "Bilgisayar Mühendisliği",
+        "institute": "Fen Bilimleri Enstitüsü",
+        "field": "muhendislik",
+        "url": "https://cmpe.bogazici.edu.tr/"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "main": 10,
+          "prep": 1,
+          "source": "10 (Esas sınıf) + 1 (Dil hazırlık sınıfı)"
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "SAY",
+              "min": 70
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 153
+            }
+          ],
+          "source": "SAY: 70"
+        },
+        "gpa": {
+          "masterMin4": 3,
+          "note": "İlanda yalnızca “GNO” yazıyor, hangi derecenin ortalaması olduğu belirtilmemiş. Doktoraya yüksek lisans derecesiyle başvurulduğu için yüksek lisans ortalaması olarak girildi; emin olmak için programa danışın.",
+          "source": "GNO: 3.00/4.00"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            },
+            {
+              "label": "Doktora yabancı dil şartı",
+              "options": [
+                {
+                  "exam": "YDS",
+                  "min": 55
+                },
+                {
+                  "exam": "YOKDIL",
+                  "min": 55
+                },
+                {
+                  "exam": "DIGER",
+                  "name": "e-TEP",
+                  "grade": "YDS 55 karşılığı"
+                }
+              ],
+              "note": "Üniversitelerarası Kurulca kabul edilen bir sınavdan eşdeğer puan da geçerlidir. BUEPT, IELTS ya da Boğaziçi mezunlarına tanınan İngilizce muafiyeti bu şartı karşılamaz."
+            }
+          ]
+        },
+        "exam": {
+          "written": {
+            "date": "2026-12-25",
+            "time": "09.00-12.00",
+            "place": "Bilgisayar Mühendisliği Binası"
+          },
+          "interview": {
+            "date": "2026-12-28",
+            "time": "09.30-17.00",
+            "place": "Bilgisayar Mühendisliği Binası"
+          },
+          "note": "Yalnızca ön değerlendirmeyi geçen adaylar mülakata çağrılır. Ön değerlendirme sonucu mülakattan önce e-postayla bildirilir."
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript",
+            "detail": "Lisans ve yüksek lisans transkripti."
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans ve yüksek lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Amaç yazısı",
+            "detail": "Bölümün amaç yazısı (Statement of Purpose) şablonu doldurulup başvuru sistemine yüklenir. Yazıda adayın çalışmaları, çalışmak istediği alan, birlikte tez yapmak istediği öğretim üyesi ve varsa yayın listesi yer alır. Şablon, birlikte çalışılmak istenen öğretim üyesinden alınır."
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2,
+            "detail": "Boğaziçi Bilgisayar Mühendisliği öğrenci ve mezunlarından istenmez."
+          }
+        ],
+        "contact": {
+          "phone": "0212 359 4523 - 4524",
+          "email": "cmpe.basvur@bogazici.edu.tr",
+          "url": "https://cmpe.bogazici.edu.tr/"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Bilgisayar_Muhendisligi"
+    },
+    {
+      "program": {
+        "name": "Elektrik - Elektronik Mühendisliği",
+        "institute": "Fen Bilimleri Enstitüsü",
+        "field": "muhendislik",
+        "url": "https://ee.boun.edu.tr/tr"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "main": 40,
+          "prep": 3,
+          "source": "40 (Esas sınıf) + 3 (Dil hazırlık sınıfı)"
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "SAY",
+              "min": 70
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 153
+            }
+          ],
+          "source": "SAY: 70"
+        },
+        "gpa": {
+          "min4": 2.5,
+          "source": "GNO: 2.50/4.00"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            }
+          ]
+        },
+        "exam": {
+          "interview": {
+            "date": "2026-12-25",
+            "time": "13.30",
+            "place": "Yüz yüze; yer için programa danışın"
+          }
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript"
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Amaç yazısı",
+            "detail": "Yazıda hangi seçeneğe başvurulduğu belirtilir: Elektronik, Devreler ve Sistemler ya da Sinyal İşleme ve Telekomünikasyon."
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2,
+            "detail": "Boğaziçi Elektrik-Elektronik Mühendisliği Bölümü mezunlarından istenmez."
+          }
+        ],
+        "contact": {
+          "phone": "0212 359 7573",
+          "url": "https://ee.bogazici.edu.tr/tr"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Elektrik_Elektronik_Muhendisligi"
+    },
+    {
+      "program": {
+        "name": "Elektrik - Elektronik Mühendisliği",
+        "institute": "Fen Bilimleri Enstitüsü",
+        "field": "muhendislik",
+        "url": "https://ee.boun.edu.tr/tr"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "main": 30,
+          "prep": 0,
+          "source": "30 (Dil hazırlık sınıfı kontenjanı yoktur)"
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "SAY",
+              "min": 70
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 153
+            }
+          ],
+          "source": "SAY: 70"
+        },
+        "gpa": {
+          "masterMin4": 3.15,
+          "note": "İlanda yalnızca “GNO” yazıyor, hangi derecenin ortalaması olduğu belirtilmemiş. Doktoraya yüksek lisans derecesiyle başvurulduğu için yüksek lisans ortalaması olarak girildi; emin olmak için programa danışın.",
+          "source": "GNO: 3.15/4.00"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            },
+            {
+              "label": "Doktora yabancı dil şartı",
+              "options": [
+                {
+                  "exam": "YDS",
+                  "min": 55
+                },
+                {
+                  "exam": "YOKDIL",
+                  "min": 55
+                },
+                {
+                  "exam": "DIGER",
+                  "name": "e-TEP",
+                  "grade": "YDS 55 karşılığı"
+                }
+              ],
+              "note": "Üniversitelerarası Kurulca kabul edilen bir sınavdan eşdeğer puan da geçerlidir. BUEPT, IELTS ya da Boğaziçi mezunlarına tanınan İngilizce muafiyeti bu şartı karşılamaz."
+            }
+          ]
+        },
+        "exam": {
+          "interview": {
+            "date": "2026-12-25",
+            "time": "10.00",
+            "place": "Yüz yüze; yer için programa danışın"
+          }
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript",
+            "detail": "Lisans ve yüksek lisans transkripti."
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans ve yüksek lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Amaç yazısı",
+            "detail": "Bölüm öğretim üyelerinden birinin adayın doktora tez danışmanı olmayı kabul etmiş olması gerekir; yazıda birlikte çalışılacak öğretim üyesi belirtilir."
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2,
+            "detail": "Boğaziçi Elektrik-Elektronik Mühendisliği Bölümü mezunlarından istenmez."
+          }
+        ],
+        "contact": {
+          "phone": "0212 359 7573",
+          "url": "https://ee.bogazici.edu.tr/tr"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Elektrik_Elektronik_Muhendisligi"
+    },
+    {
+      "program": {
+        "name": "Endüstri Mühendisliği",
+        "institute": "Fen Bilimleri Enstitüsü",
+        "field": "muhendislik",
+        "url": "https://ie.bogazici.edu.tr/tr"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "main": 10,
+          "prep": 0,
+          "source": "10 (Dil hazırlık sınıfı kontenjanı yoktur)"
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "SAY",
+              "min": 70
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 153
+            }
+          ],
+          "source": "SAY: 70"
+        },
+        "gpa": {
+          "min4": 2.5,
+          "source": "GNO: 2.50/4.00"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            }
+          ]
+        },
+        "exam": {
+          "interview": {
+            "date": "2026-12-28",
+            "time": "10.00",
+            "place": "Yüz yüze; yer için programa danışın"
+          },
+          "note": "Ön değerlendirme sonucu sözlü bilim sınavından önce e-postayla bildirilir. Ön değerlendirmeyi geçemeyen adaylar sözlü sınava çağrılmaz."
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript"
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2,
+            "detail": "Boğaziçi Endüstri Mühendisliği Bölümü öğrenci ve mezunlarından istenmez."
+          }
+        ],
+        "contact": {
+          "phone": "0212 359 6407 - 6408",
+          "email": "ie.admissions@bogazici.edu.tr",
+          "url": "https://ie.bogazici.edu.tr/tr"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Endustri_Muhendisligi"
+    },
+    {
+      "program": {
+        "name": "Endüstri Mühendisliği",
+        "institute": "Fen Bilimleri Enstitüsü",
+        "field": "muhendislik",
+        "url": "https://ie.bogazici.edu.tr/tr"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "main": 4,
+          "prep": 0,
+          "source": "4 (Dil hazırlık sınıfı kontenjanı yoktur)"
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "SAY",
+              "min": 70
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 153
+            }
+          ],
+          "source": "SAY: 70"
+        },
+        "gpa": {
+          "masterMin4": 3,
+          "note": "İlanda yalnızca “GNO” yazıyor, hangi derecenin ortalaması olduğu belirtilmemiş. Doktoraya yüksek lisans derecesiyle başvurulduğu için yüksek lisans ortalaması olarak girildi; emin olmak için programa danışın.",
+          "source": "GNO: 3.00/4.00"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            },
+            {
+              "label": "Doktora yabancı dil şartı",
+              "options": [
+                {
+                  "exam": "YDS",
+                  "min": 55
+                },
+                {
+                  "exam": "YOKDIL",
+                  "min": 55
+                },
+                {
+                  "exam": "DIGER",
+                  "name": "e-TEP",
+                  "grade": "YDS 55 karşılığı"
+                }
+              ],
+              "note": "Üniversitelerarası Kurulca kabul edilen bir sınavdan eşdeğer puan da geçerlidir. BUEPT, IELTS ya da Boğaziçi mezunlarına tanınan İngilizce muafiyeti bu şartı karşılamaz."
+            }
+          ]
+        },
+        "exam": {
+          "interview": {
+            "date": "2026-12-28",
+            "time": "10.00",
+            "place": "Yüz yüze; yer için programa danışın"
+          },
+          "note": "Ön değerlendirme sonucu sözlü bilim sınavından önce e-postayla bildirilir. Ön değerlendirmeyi geçemeyen adaylar sözlü sınava çağrılmaz."
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript",
+            "detail": "Lisans ve yüksek lisans transkripti."
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans ve yüksek lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2,
+            "detail": "Boğaziçi Endüstri Mühendisliği Bölümü öğrenci ve mezunlarından istenmez."
+          }
+        ],
+        "contact": {
+          "phone": "0212 359 6407 - 6408",
+          "email": "ie.admissions@bogazici.edu.tr",
+          "url": "https://ie.bogazici.edu.tr/tr"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Endustri_Muhendisligi"
+    },
+    {
+      "program": {
+        "name": "Fen Bilgisi Eğitimi",
+        "institute": "Fen Bilimleri Enstitüsü",
+        "field": "egitim",
+        "url": "https://sced.bogazici.edu.tr/tr"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "main": 5,
+          "prep": 0,
+          "source": "5 (Dil hazırlık sınıfı kontenjanı yoktur)"
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "SAY",
+              "min": 70
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 153
+            }
+          ],
+          "source": "SAY: 70"
+        },
+        "gpa": {
+          "min4": 2.4,
+          "source": "GNO: 2.40/4.00"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            }
+          ]
+        },
+        "exam": {
+          "written": {
+            "date": "2026-12-25",
+            "time": "10.00",
+            "place": "ETB 715"
+          },
+          "interview": {
+            "date": "2026-12-28",
+            "time": "11.00",
+            "place": "ETB 715"
+          }
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript"
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Amaç yazısı"
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2,
+            "detail": "Boğaziçi Eğitim Fakültesi öğrenci ve mezunlarından istenmez."
+          }
+        ],
+        "contact": {
+          "phone": "0212 359 6799",
+          "url": "https://sced.bogazici.edu.tr/tr"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Fen_Bilgisi_Egitimi"
+    },
+    {
+      "program": {
+        "name": "Fen Bilgisi Eğitimi",
+        "institute": "Fen Bilimleri Enstitüsü",
+        "field": "egitim",
+        "url": "https://sced.bogazici.edu.tr/tr"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "main": 5,
+          "prep": 0,
+          "source": "5 (Dil hazırlık sınıfı kontenjanı yoktur)"
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "SAY",
+              "min": 70
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 153
+            }
+          ],
+          "source": "SAY: 70"
+        },
+        "gpa": {
+          "masterMin4": 3,
+          "note": "İlanda yalnızca “GNO” yazıyor, hangi derecenin ortalaması olduğu belirtilmemiş. Doktoraya yüksek lisans derecesiyle başvurulduğu için yüksek lisans ortalaması olarak girildi; emin olmak için programa danışın.",
+          "source": "GNO: 3.00/4.00"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            },
+            {
+              "label": "Doktora yabancı dil şartı",
+              "options": [
+                {
+                  "exam": "YDS",
+                  "min": 55
+                },
+                {
+                  "exam": "YOKDIL",
+                  "min": 55
+                },
+                {
+                  "exam": "DIGER",
+                  "name": "e-TEP",
+                  "grade": "YDS 55 karşılığı"
+                }
+              ],
+              "note": "Üniversitelerarası Kurulca kabul edilen bir sınavdan eşdeğer puan da geçerlidir. BUEPT, IELTS ya da Boğaziçi mezunlarına tanınan İngilizce muafiyeti bu şartı karşılamaz."
+            }
+          ]
+        },
+        "exam": {
+          "written": {
+            "date": "2026-12-25",
+            "time": "10.00",
+            "place": "ETB 715"
+          },
+          "interview": {
+            "date": "2026-12-28",
+            "time": "11.00",
+            "place": "ETB 715"
+          }
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript",
+            "detail": "Lisans ve yüksek lisans transkripti."
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans ve yüksek lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Amaç yazısı"
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2,
+            "detail": "Boğaziçi Eğitim Fakültesi öğrenci ve mezunlarından istenmez."
+          }
+        ],
+        "contact": {
+          "phone": "0212 359 6799",
+          "url": "https://sced.bogazici.edu.tr/tr"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Fen_Bilgisi_Egitimi"
+    },
+    {
+      "program": {
+        "name": "Fizik",
+        "institute": "Fen Bilimleri Enstitüsü",
+        "field": "fen",
+        "url": "https://phys.bogazici.edu.tr/tr"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Fizik"
+    },
+    {
+      "program": {
+        "name": "Fizik",
+        "institute": "Fen Bilimleri Enstitüsü",
+        "field": "fen",
+        "url": "https://phys.bogazici.edu.tr/tr"
+      },
+      "degree": "butunlesik-doktora",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "main": 3,
+          "prep": 0,
+          "source": "3 (Dil hazırlık sınıfı kontenjanı yoktur)"
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "SAY",
+              "min": 80
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GMAT",
+              "min": 590
+            },
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 156
+            }
+          ],
+          "source": "SAY: 80"
+        },
+        "gpa": {
+          "min4": 3,
+          "source": "GNO: 3.00/4.00"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            },
+            {
+              "label": "Doktora yabancı dil şartı",
+              "options": [
+                {
+                  "exam": "YDS",
+                  "min": 55
+                },
+                {
+                  "exam": "YOKDIL",
+                  "min": 55
+                },
+                {
+                  "exam": "DIGER",
+                  "name": "e-TEP",
+                  "grade": "YDS 55 karşılığı"
+                }
+              ],
+              "note": "Üniversitelerarası Kurulca kabul edilen bir sınavdan eşdeğer puan da geçerlidir. BUEPT, IELTS ya da Boğaziçi mezunlarına tanınan İngilizce muafiyeti bu şartı karşılamaz."
+            }
+          ]
+        },
+        "exam": {
+          "written": {
+            "date": "2026-12-25",
+            "time": "13.00",
+            "place": "KB309 Feza Gürsey Seminer Odası"
+          },
+          "note": "GRE Subject Fizik sınavından en az 750 puan alan adaylar bilim sınavından muaf olabilir."
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript"
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2
+          },
+          {
+            "label": "Danışman destek mektubu",
+            "detail": "Fizik Bölümü öğretim üyelerinden birinin, adayın doktora tez danışmanı olmayı kabul ettiğini belirten mektup."
+          }
+        ],
+        "contact": {
+          "phone": "0212 359 4466 - 7600",
+          "url": "https://phys.bogazici.edu.tr/tr"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Fizik"
+    },
+    {
+      "program": {
+        "name": "Fizik",
+        "institute": "Fen Bilimleri Enstitüsü",
+        "field": "fen",
+        "url": "https://phys.bogazici.edu.tr/tr"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "main": 5,
+          "prep": 0,
+          "source": "5 (Dil hazırlık sınıfı kontenjanı yoktur)"
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "SAY",
+              "min": 70
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GMAT",
+              "min": 500
+            },
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 153
+            }
+          ],
+          "source": "SAY: 70"
+        },
+        "gpa": {
+          "masterMin4": 3,
+          "note": "İlanda yalnızca “GNO” yazıyor, hangi derecenin ortalaması olduğu belirtilmemiş. Doktoraya yüksek lisans derecesiyle başvurulduğu için yüksek lisans ortalaması olarak girildi; emin olmak için programa danışın.",
+          "source": "GNO: 3.00/4.00"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            },
+            {
+              "label": "Doktora yabancı dil şartı",
+              "options": [
+                {
+                  "exam": "YDS",
+                  "min": 55
+                },
+                {
+                  "exam": "YOKDIL",
+                  "min": 55
+                },
+                {
+                  "exam": "DIGER",
+                  "name": "e-TEP",
+                  "grade": "YDS 55 karşılığı"
+                }
+              ],
+              "note": "Üniversitelerarası Kurulca kabul edilen bir sınavdan eşdeğer puan da geçerlidir. BUEPT, IELTS ya da Boğaziçi mezunlarına tanınan İngilizce muafiyeti bu şartı karşılamaz."
+            }
+          ]
+        },
+        "exam": {
+          "written": {
+            "date": "2026-12-25",
+            "time": "13.00",
+            "place": "KB309 Feza Gürsey Seminer Odası"
+          },
+          "note": "GRE Subject Fizik sınavından en az 750 puan alan adaylar bilim sınavından muaf olabilir."
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript",
+            "detail": "Lisans ve yüksek lisans transkripti."
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans ve yüksek lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2
+          },
+          {
+            "label": "Danışman destek mektubu",
+            "detail": "Fizik Bölümü öğretim üyelerinden birinin, adayın doktora tez danışmanı olmayı kabul ettiğini belirten mektup."
+          }
+        ],
+        "contact": {
+          "phone": "0212 359 4466 - 7600",
+          "url": "https://phys.bogazici.edu.tr/tr"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Fizik"
+    },
+    {
+      "program": {
+        "name": "Fizik Eğitimi",
+        "institute": "Fen Bilimleri Enstitüsü",
+        "field": "egitim",
+        "url": "https://sced.bogazici.edu.tr/tr"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "main": 5,
+          "prep": 0,
+          "source": "5 (Dil hazırlık sınıfı kontenjanı yoktur)"
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "SAY",
+              "min": 70
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 153
+            }
+          ],
+          "source": "SAY: 70"
+        },
+        "gpa": {
+          "min4": 2.4,
+          "source": "GNO: 2.40/4.00"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            }
+          ]
+        },
+        "exam": {
+          "written": {
+            "date": "2026-12-25",
+            "time": "10.00",
+            "place": "ETB 715"
+          },
+          "interview": {
+            "date": "2026-12-28",
+            "time": "11.00",
+            "place": "ETB 715"
+          }
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript"
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Amaç yazısı"
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2,
+            "detail": "Boğaziçi Eğitim Fakültesi öğrenci ve mezunlarından istenmez."
+          }
+        ],
+        "contact": {
+          "phone": "0212 359 6799",
+          "url": "https://sced.bogazici.edu.tr/tr"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Fizik_Egitimi"
+    },
+    {
+      "program": {
+        "name": "Hesaplamalı Bilim ve Mühendislik",
+        "institute": "Fen Bilimleri Enstitüsü",
+        "field": "muhendislik",
+        "url": "https://cse.bogazici.edu.tr/"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "main": 15,
+          "prep": 2,
+          "source": "15 (Esas sınıf) + 2 (Dil hazırlık sınıfı)"
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "SAY",
+              "min": 70
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 153
+            }
+          ],
+          "source": "SAY: 70"
+        },
+        "gpa": {
+          "min4": 2.25,
+          "source": "GNO: 2.25/4.00"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            }
+          ]
+        },
+        "exam": {
+          "written": {
+            "date": "2026-12-25",
+            "time": "10.00",
+            "place": "Çevrim içi"
+          },
+          "interview": {
+            "date": "2026-12-25",
+            "time": "10.00",
+            "place": "Çevrim içi"
+          }
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript"
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2
+          }
+        ],
+        "contact": {
+          "phone": "0212 359 6882",
+          "url": "https://cse.bogazici.edu.tr/"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Hesaplamali_Bilim_ve_Muhendislik"
+    },
+    {
+      "program": {
+        "name": "İnşaat Mühendisliği",
+        "institute": "Fen Bilimleri Enstitüsü",
+        "field": "muhendislik",
+        "url": "https://ce.bogazici.edu.tr/"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "tracks": [
+            {
+              "name": "Geoteknik Mühendisliği",
+              "main": 8,
+              "prep": 0
+            },
+            {
+              "name": "Hidrolik ve Kıyı Mühendisliği",
+              "main": 8,
+              "prep": 0
+            },
+            {
+              "name": "Ulaştırma Mühendisliği",
+              "main": 8,
+              "prep": 0
+            },
+            {
+              "name": "Yapı Malzemeleri",
+              "main": 8,
+              "prep": 0
+            },
+            {
+              "name": "Yapı Mühendisliği",
+              "main": 8,
+              "prep": 0
+            },
+            {
+              "name": "Yapım Yönetimi",
+              "main": 8,
+              "prep": 0
+            }
+          ],
+          "note": "Başvuru sisteminde bütün dallar için “CIVIL ENGINEERING (MS/MA)” seçilir."
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "SAY",
+              "min": 70
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 153
+            }
+          ],
+          "source": "SAY: 70"
+        },
+        "gpa": {
+          "min4": 2.5,
+          "source": "GNO: 2.50/4.00"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            }
+          ]
+        },
+        "exam": {
+          "interview": {
+            "date": "2026-12-28",
+            "time": "10.00",
+            "place": "İnşaat Mühendisliği Toplantı Odası"
+          }
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript"
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2
+          }
+        ],
+        "contact": {
+          "phone": "0212 359 6425",
+          "url": "https://ce.bogazici.edu.tr/"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/insaat_Muhendisligi"
+    },
+    {
+      "program": {
+        "name": "İnşaat Mühendisliği",
+        "institute": "Fen Bilimleri Enstitüsü",
+        "field": "muhendislik",
+        "url": "https://ce.bogazici.edu.tr/"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "tracks": [
+            {
+              "name": "Geoteknik Mühendisliği",
+              "main": 5,
+              "prep": 0
+            },
+            {
+              "name": "Hidrolik ve Kıyı Mühendisliği",
+              "main": 5,
+              "prep": 0
+            },
+            {
+              "name": "Ulaştırma Mühendisliği",
+              "main": 5,
+              "prep": 0
+            },
+            {
+              "name": "Yapı Malzemeleri",
+              "main": 5,
+              "prep": 0
+            },
+            {
+              "name": "Yapı Mühendisliği",
+              "main": 5,
+              "prep": 0
+            },
+            {
+              "name": "Yapım Yönetimi",
+              "main": 5,
+              "prep": 0
+            }
+          ],
+          "note": "Başvuru sisteminde bütün dallar için “CIVIL ENGINEERING (PHD)” seçilir."
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "SAY",
+              "min": 70
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 153
+            }
+          ],
+          "source": "SAY: 70"
+        },
+        "gpa": {
+          "masterMin4": 3,
+          "note": "İlanda yalnızca “GNO” yazıyor, hangi derecenin ortalaması olduğu belirtilmemiş. Doktoraya yüksek lisans derecesiyle başvurulduğu için yüksek lisans ortalaması olarak girildi; emin olmak için programa danışın.",
+          "source": "GNO: 3.00/4.00"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            },
+            {
+              "label": "Doktora yabancı dil şartı",
+              "options": [
+                {
+                  "exam": "YDS",
+                  "min": 55
+                },
+                {
+                  "exam": "YOKDIL",
+                  "min": 55
+                },
+                {
+                  "exam": "DIGER",
+                  "name": "e-TEP",
+                  "grade": "YDS 55 karşılığı"
+                }
+              ],
+              "note": "Üniversitelerarası Kurulca kabul edilen bir sınavdan eşdeğer puan da geçerlidir. BUEPT, IELTS ya da Boğaziçi mezunlarına tanınan İngilizce muafiyeti bu şartı karşılamaz."
+            }
+          ]
+        },
+        "exam": {
+          "interview": {
+            "date": "2026-12-29",
+            "time": "10.00",
+            "place": "İnşaat Mühendisliği Toplantı Odası"
+          }
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript",
+            "detail": "Lisans ve yüksek lisans transkripti."
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans ve yüksek lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2
+          }
+        ],
+        "contact": {
+          "phone": "0212 359 6425",
+          "url": "https://ce.bogazici.edu.tr/"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/insaat_Muhendisligi"
+    },
+    {
+      "program": {
+        "name": "Kimya",
+        "institute": "Fen Bilimleri Enstitüsü",
+        "field": "fen",
+        "url": "https://chem.bogazici.edu.tr/tr"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "main": 20,
+          "prep": 5,
+          "source": "20 (Esas sınıf) + 5 (Dil hazırlık sınıfı)"
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "SAY",
+              "min": 70
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 153
+            }
+          ],
+          "source": "SAY: 70"
+        },
+        "gpa": {
+          "min4": 2.4,
+          "source": "GNO: 2.40/4.00"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            }
+          ]
+        },
+        "exam": {
+          "written": {
+            "date": "2026-12-28",
+            "time": "10.00",
+            "place": "KB 126"
+          },
+          "interview": {
+            "date": "2026-12-28",
+            "time": "14.00",
+            "place": "Kimya Bölümü Seminer Odası"
+          }
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript"
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2
+          }
+        ],
+        "contact": {
+          "phone": "0212 359 4793 / 0212 359 4790",
+          "url": "https://chem.bogazici.edu.tr/tr"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Kimya"
+    },
+    {
+      "program": {
+        "name": "Kimya",
+        "institute": "Fen Bilimleri Enstitüsü",
+        "field": "fen",
+        "url": "https://chem.bogazici.edu.tr/tr"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "main": 15,
+          "prep": 2,
+          "source": "15 (Esas sınıf) + 2 (Dil hazırlık sınıfı)"
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "SAY",
+              "min": 70
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 153
+            }
+          ],
+          "source": "SAY: 70"
+        },
+        "gpa": {
+          "min4": 2.4,
+          "masterMin4": 3.25,
+          "source": "Lisans GNO: 2.40/4.00 ve Yüksek Lisans GNO: 3.25/4.00"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            },
+            {
+              "label": "Doktora yabancı dil şartı",
+              "options": [
+                {
+                  "exam": "YDS",
+                  "min": 55
+                },
+                {
+                  "exam": "YOKDIL",
+                  "min": 55
+                },
+                {
+                  "exam": "DIGER",
+                  "name": "e-TEP",
+                  "grade": "YDS 55 karşılığı"
+                }
+              ],
+              "note": "Üniversitelerarası Kurulca kabul edilen bir sınavdan eşdeğer puan da geçerlidir. BUEPT, IELTS ya da Boğaziçi mezunlarına tanınan İngilizce muafiyeti bu şartı karşılamaz."
+            }
+          ]
+        },
+        "exam": {
+          "written": {
+            "date": "2026-12-28",
+            "time": "10.00",
+            "place": "KB 126"
+          },
+          "interview": {
+            "date": "2026-12-28",
+            "time": "14.00",
+            "place": "Kimya Bölümü Seminer Odası"
+          }
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript",
+            "detail": "Lisans ve yüksek lisans transkripti."
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans ve yüksek lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2
+          }
+        ],
+        "contact": {
+          "phone": "0212 359 4793 / 0212 359 4790",
+          "url": "https://chem.bogazici.edu.tr/tr"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Kimya"
+    },
+    {
+      "program": {
+        "name": "Kimya Eğitimi",
+        "institute": "Fen Bilimleri Enstitüsü",
+        "field": "egitim",
+        "url": "https://sced.bogazici.edu.tr/tr"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "main": 5,
+          "prep": 0,
+          "source": "5 (Dil hazırlık sınıfı kontenjanı yoktur)"
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "SAY",
+              "min": 70
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 153
+            }
+          ],
+          "source": "SAY: 70"
+        },
+        "gpa": {
+          "min4": 2.4,
+          "source": "GNO: 2.40/4.00"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            }
+          ]
+        },
+        "exam": {
+          "written": {
+            "date": "2026-12-25",
+            "time": "10.00",
+            "place": "ETB 715"
+          },
+          "interview": {
+            "date": "2026-12-28",
+            "time": "11.00",
+            "place": "ETB 715"
+          }
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript"
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Amaç yazısı"
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2,
+            "detail": "Boğaziçi Eğitim Fakültesi öğrenci ve mezunlarından istenmez."
+          }
+        ],
+        "contact": {
+          "phone": "0212 359 6799",
+          "url": "https://sced.bogazici.edu.tr/tr"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Kimya_Egitimi"
+    },
+    {
+      "program": {
+        "name": "Kimya Mühendisliği",
+        "institute": "Fen Bilimleri Enstitüsü",
+        "field": "muhendislik",
+        "url": "https://che.bogazici.edu.tr/tr"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "main": 30,
+          "prep": 3,
+          "source": "30 (Esas sınıf) + 3 (Dil hazırlık sınıfı)"
+        },
+        "ales": {
+          "required": true,
+          "variants": [
+            {
+              "when": "Not ortalaması 2,25 - 2,49 olanlar",
+              "gpaMin": 2.25,
+              "gpaMax": 2.49,
+              "options": [
+                {
+                  "type": "SAY",
+                  "min": 75
+                }
+              ],
+              "substitutes": [
+                {
+                  "exam": "GRE",
+                  "section": "Sayısal",
+                  "min": 155
+                }
+              ]
+            },
+            {
+              "when": "Not ortalaması 2,50 ve üzeri olanlar",
+              "gpaMin": 2.5,
+              "options": [
+                {
+                  "type": "SAY",
+                  "min": 70
+                }
+              ],
+              "substitutes": [
+                {
+                  "exam": "GRE",
+                  "section": "Sayısal",
+                  "min": 153
+                }
+              ]
+            }
+          ],
+          "source": "2.25 - 2.49 / 4.00 ise ALES SAY: 75; 2.50 ve üzeri / 4.00 ise ALES SAY: 70"
+        },
+        "gpa": {
+          "min4": 2.25,
+          "note": "Not ortalaması düşük olan adaydan daha yüksek ALES istenir; ALES bölümüne bakın.",
+          "source": "2.25 - 2.49 / 4.00 ise ALES SAY: 75; 2.50 ve üzeri / 4.00 ise ALES SAY: 70"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            }
+          ]
+        },
+        "exam": {
+          "written": {
+            "date": "2026-12-29",
+            "time": "10.00",
+            "place": "Kimya Mühendisliği Bölümü"
+          },
+          "interview": {
+            "date": "2026-12-29",
+            "time": "11.00",
+            "place": "Kimya Mühendisliği Bölümü"
+          }
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript"
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2
+          }
+        ],
+        "prep": "Lisans derecesi Kimya Mühendisliği dışında olan adayların, kabul edilirlerse bilimsel hazırlık dersleri alması gerekebilir.",
+        "contact": {
+          "phone": "0212 359 6471",
+          "url": "https://che.bogazici.edu.tr/tr"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Kimya_Muhendisligi"
+    },
+    {
+      "program": {
+        "name": "Kimya Mühendisliği",
+        "institute": "Fen Bilimleri Enstitüsü",
+        "field": "muhendislik",
+        "url": "https://che.bogazici.edu.tr/tr"
+      },
+      "degree": "butunlesik-doktora",
+      "mode": "orgun",
+      "language": "en",
+      "details": {
+        "quota": {
+          "main": 3,
+          "prep": 0,
+          "source": "3 (Dil hazırlık sınıfı kontenjanı yoktur)"
+        },
+        "ales": {
+          "required": true,
+          "options": [
+            {
+              "type": "SAY",
+              "min": 80
+            }
+          ],
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 156
+            }
+          ],
+          "source": "SAY: 80"
+        },
+        "gpa": {
+          "min4": 3,
+          "source": "GNO: 3.00/4.00"
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "İngilizce yeterlik",
+              "language": "İngilizce",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "BUEPT",
+                  "grade": "C"
+                },
+                {
+                  "exam": "TOEFL",
+                  "min": 4.5,
+                  "sections": "Okuma, dinleme, konuşma ve yazma bölümlerinin her birinden en az 4,5"
+                },
+                {
+                  "exam": "IELTS",
+                  "name": "IELTS Akademik",
+                  "min": 6.5,
+                  "sections": "Akademik yazma bölümünden en az 6,5"
+                },
+                {
+                  "exam": "CAE",
+                  "grade": "C"
+                }
+              ]
+            },
+            {
+              "label": "Doktora yabancı dil şartı",
+              "options": [
+                {
+                  "exam": "YDS",
+                  "min": 55
+                },
+                {
+                  "exam": "YOKDIL",
+                  "min": 55
+                },
+                {
+                  "exam": "DIGER",
+                  "name": "e-TEP",
+                  "grade": "YDS 55 karşılığı"
+                }
+              ],
+              "note": "Üniversitelerarası Kurulca kabul edilen bir sınavdan eşdeğer puan da geçerlidir. BUEPT, IELTS ya da Boğaziçi mezunlarına tanınan İngilizce muafiyeti bu şartı karşılamaz."
+            }
+          ]
+        },
+        "background": {
+          "text": "Adayın bitirdiği ya da bitirmek üzere olduğu lisans programı Kimya Mühendisliği ya da eşdeğeri olmalıdır. Yan dal programıyla Kimya Mühendisliği ya da eşdeğeri bir lisans programının gereklerini tamamlamış adaylar da değerlendirmeye alınabilir.",
+          "fields": [
+            "Kimya Mühendisliği"
+          ]
+        },
+        "exam": {
+          "written": {
+            "date": "2026-12-29",
+            "time": "10.00",
+            "place": "Kimya Mühendisliği Bölümü"
+          },
+          "interview": {
+            "date": "2026-12-29",
+            "time": "11.00",
+            "place": "Kimya Mühendisliği Bölümü"
+          }
+        },
+        "documents": [
+          {
+            "label": "Resmi transkript"
+          },
+          {
+            "label": "Diploma",
+            "detail": "Lisans diploması ya da geçici mezuniyet belgesi. Henüz mezun olmayan aday, mezun olabileceğini gösteren yazı sunar. Boğaziçi öğrencilerinden istenmez."
+          },
+          {
+            "label": "Disiplin sicil belgesi",
+            "detail": "Türkiye'deki üniversitelerden gelen adaylar için zorunlu. Boğaziçi öğrenci ve mezunlarından istenmez."
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2
+          }
+        ],
+        "contact": {
+          "phone": "0212 359 6471",
+          "url": "https://che.bogazici.edu.tr/tr"
+        }
+      },
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Kimya_Muhendisligi"
+    },
+    {
+      "program": {
+        "name": "Matematik",
+        "institute": "Fen Bilimleri Enstitüsü",
+        "field": "fen"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Matematik"
+    },
+    {
+      "program": {
+        "name": "Matematik ve Fen Bilimleri Eğitimi",
+        "institute": "Fen Bilimleri Enstitüsü",
+        "field": "egitim"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Matematik_ve_Fen_Bilimleri_Egitimi"
+    },
+    {
+      "program": {
+        "name": "Matematik ve Fen Bilimleri Eğitimi",
+        "institute": "Fen Bilimleri Enstitüsü",
+        "field": "egitim"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Matematik_ve_Fen_Bilimleri_Egitimi"
+    },
+    {
+      "program": {
+        "name": "Deprem Riskinin Azaltılması",
+        "institute": "Kandilli Rasathanesi ve Deprem Araştırma Enstitüsü",
+        "field": "disiplinlerarasi"
+      },
+      "degree": "yl-tezsiz",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Deprem_Riskinin_Azaltilmasi"
+    },
+    {
+      "program": {
+        "name": "Jeofizik",
+        "institute": "Kandilli Rasathanesi ve Deprem Araştırma Enstitüsü",
+        "field": "fen"
+      },
+      "degree": "butunlesik-doktora",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Jeofizik"
+    },
+    {
+      "program": {
+        "name": "Bilişsel Bilim",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "disiplinlerarasi"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Bilissel_Bilim"
+    },
+    {
+      "program": {
+        "name": "Çeviribilim",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "beseri"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/ceviribilim"
+    },
+    {
+      "program": {
+        "name": "Dilbilim",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "beseri"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Dilbilim"
+    },
+    {
+      "program": {
+        "name": "Dilbilim",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "beseri"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Dilbilim"
+    },
+    {
+      "program": {
+        "name": "Eğitim Bilimleri",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "egitim"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Egitim_Bilimleri"
+    },
+    {
+      "program": {
+        "name": "Eğitim Bilimleri (Eğitim Programları ve Öğretim)",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "egitim"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Egitim_Bilimleri_(Egitim_Programlari_ve_ogretim)"
+    },
+    {
+      "program": {
+        "name": "Eğitim Bilimleri (Rehberlik ve Psikolojik Danışmanlık)",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "egitim"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Egitim_Bilimleri_(Rehberlik_ve_Psikolojik_Danismanlik)"
+    },
+    {
+      "program": {
+        "name": "Eğitim Teknolojisi",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "egitim"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Egitim_Teknolojisi"
+    },
+    {
+      "program": {
+        "name": "Eleştiri ve Kültür Araştırmaları",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "beseri"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Elestiri_ve_Kultur_Arastirmalari"
+    },
+    {
+      "program": {
+        "name": "Erken Çocukluk Eğitimi",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "egitim"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Erken_cocukluk_Egitimi"
+    },
+    {
+      "program": {
+        "name": "Felsefe",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "beseri"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Felsefe"
+    },
+    {
+      "program": {
+        "name": "Felsefe",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "beseri"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Felsefe"
+    },
+    {
+      "program": {
+        "name": "İktisat",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "iktisadi-idari"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/iktisat"
+    },
+    {
+      "program": {
+        "name": "İktisat",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "iktisadi-idari"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/iktisat"
+    },
+    {
+      "program": {
+        "name": "İngiliz Edebiyatı",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "beseri"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/ingiliz_Edebiyati"
+    },
+    {
+      "program": {
+        "name": "İngiliz Edebiyatı",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "beseri"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/ingiliz_Edebiyati"
+    },
+    {
+      "program": {
+        "name": "İşletme",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "iktisadi-idari"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/isletme"
+    },
+    {
+      "program": {
+        "name": "İşletme",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "iktisadi-idari"
+      },
+      "degree": "yl-tezsiz",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/isletme"
+    },
+    {
+      "program": {
+        "name": "İşletme",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "iktisadi-idari"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/isletme"
+    },
+    {
+      "program": {
+        "name": "Klinik Psikoloji",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "sosyal"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Klinik_Psikoloji"
+    },
+    {
+      "program": {
+        "name": "Klinik Psikoloji",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "sosyal"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Klinik_Psikoloji"
+    },
+    {
+      "program": {
+        "name": "Konferans Çevirmenliği",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "beseri"
+      },
+      "degree": "yl-tezsiz",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Konferans_cevirmenligi"
+    },
+    {
+      "program": {
+        "name": "Öğrenme Bilimleri",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "egitim"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/ogrenme_Bilimleri"
+    },
+    {
+      "program": {
+        "name": "Psikoloji",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "sosyal"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Psikoloji"
+    },
+    {
+      "program": {
+        "name": "Psikoloji",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "sosyal"
+      },
+      "degree": "butunlesik-doktora",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Psikoloji"
+    },
+    {
+      "program": {
+        "name": "Psikoloji",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "sosyal"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Psikoloji"
+    },
+    {
+      "program": {
+        "name": "Siyaset Bilimi ve Uluslararası İlişkiler",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "sosyal"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/siyaset_Bilimi_ve_uluslararasi_iliskiler"
+    },
+    {
+      "program": {
+        "name": "Siyaset Bilimi ve Uluslararası İlişkiler",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "sosyal"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/siyaset_Bilimi_ve_uluslararasi_iliskiler"
+    },
+    {
+      "program": {
+        "name": "Sosyal Politika",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "sosyal"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/sosyal_Politika"
+    },
+    {
+      "program": {
+        "name": "Sosyoloji",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "sosyal"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/sosyoloji"
+    },
+    {
+      "program": {
+        "name": "Sürdürülebilir Turizm Yönetimi",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "iktisadi-idari"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/surdurulebilir_Turizm_Yonetimi"
+    },
+    {
+      "program": {
+        "name": "Tarih",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "beseri"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Tarih"
+    },
+    {
+      "program": {
+        "name": "Tarih",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "beseri"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Tarih"
+    },
+    {
+      "program": {
+        "name": "Turizm İşletmeciliği",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "iktisadi-idari"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Turizm_isletmeciligi"
+    },
+    {
+      "program": {
+        "name": "Türk Dili ve Edebiyatı",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "beseri"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "tr",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Turk_Dili_ve_Edebiyati"
+    },
+    {
+      "program": {
+        "name": "Türk Dili ve Edebiyatı",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "beseri"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "tr",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Turk_Dili_ve_Edebiyati"
+    },
+    {
+      "program": {
+        "name": "Uluslararası Ticaret Yönetimi",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "iktisadi-idari"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/uluslararasi_Ticaret_Yonetimi"
+    },
+    {
+      "program": {
+        "name": "Yabancı Diller Eğitimi (İngiliz Dili Eğitimi)",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "egitim"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Yabanci_Diller_Egitimi_(ingiliz_Dili_Egitimi)"
+    },
+    {
+      "program": {
+        "name": "Yabancı Diller Eğitimi (İngiliz Dili Eğitimi)",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "egitim"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Yabanci_Diller_Egitimi_(ingiliz_Dili_Egitimi)"
+    },
+    {
+      "program": {
+        "name": "Yazılı Çeviri",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "beseri"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Yazili_ceviri"
+    },
+    {
+      "program": {
+        "name": "Yönetim Bilişim Sistemleri",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "iktisadi-idari"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Yonetim_Bilisim_sistemleri"
+    },
+    {
+      "program": {
+        "name": "Yönetim Bilişim Sistemleri",
+        "institute": "Sosyal Bilimler Enstitüsü",
+        "field": "iktisadi-idari"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Yonetim_Bilisim_sistemleri"
+    },
+    {
+      "program": {
+        "name": "Veri Bilimi ve Yapay Zeka",
+        "institute": "Veri Bilimi ve Yapay Zeka Enstitüsü",
+        "field": "muhendislik"
+      },
+      "degree": "yl-tezli",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Veri_Bilimi_ve_Yapay_Zeka"
+    },
+    {
+      "program": {
+        "name": "Veri Bilimi ve Yapay Zeka",
+        "institute": "Veri Bilimi ve Yapay Zeka Enstitüsü",
+        "field": "muhendislik"
+      },
+      "degree": "butunlesik-doktora",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Veri_Bilimi_ve_Yapay_Zeka"
+    },
+    {
+      "program": {
+        "name": "Veri Bilimi ve Yapay Zeka",
+        "institute": "Veri Bilimi ve Yapay Zeka Enstitüsü",
+        "field": "muhendislik"
+      },
+      "degree": "doktora",
+      "mode": "orgun",
+      "language": "en",
+      "accepting": false,
+      "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Veri_Bilimi_ve_Yapay_Zeka"
+    }
+  ]
+}

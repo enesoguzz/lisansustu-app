@@ -1,0 +1,149 @@
+{
+  "format": "lisansustu-ilan/1",
+  "university": {
+    "slug": "kadir-has",
+    "name": "Kadir Has Üniversitesi",
+    "short_name": "Kadir Has",
+    "city": "İstanbul",
+    "kind": "vakif",
+    "website": "https://www.khas.edu.tr"
+  },
+  "rules": [
+    {
+      "degree": "yl-tezli",
+      "details": {
+        "ales": {
+          "required": true,
+          "min": 55,
+          "note": "Programın puan türünde aranır; YÖK'ün eşdeğer saydığı sınavlardan eşdeğer puan da kabul edilir. Doktora, sanatta yeterlik ya da uzmanlık (tıp, diş hekimliği, veteriner hekimlik, eczacılık) mezunlarından ALES istenmez; değerlendirmede ALES puanları 75 sayılır. Yalnızca özel yetenek sınavıyla öğrenci alan programlarda da ALES aranmaz."
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "Yabancı dil",
+              "options": [
+                {
+                  "exam": "YDS",
+                  "min": 65
+                }
+              ],
+              "note": "ÖSYM'nin eşdeğer saydığı uluslararası sınavlardan Senato'nun belirlediği puan da geçerlidir. Hangi durumlarda dil puanı aranmayacağını Senato belirler. Kadir Has'ta bir lisans ya da lisansüstü programı bitirenlerden İngilizce yeterlik belgesi ayrıca istenmez."
+            }
+          ]
+        },
+        "evaluation": {
+          "weights": [
+            {
+              "item": "ALES ya da eşdeğeri",
+              "percent": 50
+            },
+            {
+              "item": "Mülakat",
+              "percent": 50
+            }
+          ],
+          "note": "Program gerekli görürse yazılı bilim sınavı yapabilir; yazılı sınavda uygun bulunmayan aday mülakata çağrılmaz. Uluslararası öğrencilerden ALES ya da eşdeğeri aranmaz."
+        },
+        "prep": "Lisans derecesini başvurduğu programdan farklı bir alanda almış adaylara en çok iki yarıyıl süren bilimsel hazırlık programı uygulanabilir.",
+        "notes": "Program koordinatörü ayrıca lisans not ortalaması, mülakat, referans mektubu, niyet mektubu ya da tez önerisi isteyebilir."
+      },
+      "notes": "Kaynak: Kadir Has Üniversitesi Lisansüstü Eğitim Uygulama Yönergesi (Senato kararı: 22.08.2024, 2024/10), Madde 6, 8 ve 9. Kontenjanlar ve programa özel koşullar her dönem Enstitü tarafından ayrıca ilan edilir."
+    },
+    {
+      "degree": "yl-tezsiz",
+      "details": {
+        "ales": {
+          "required": false
+        },
+        "notes": "Yabancı dil şartı (YDS'den en az 65 ya da eşdeğeri) yalnızca öğretim dili İngilizce olan tezsiz programlarda aranır. Kadir Has'ta bir lisans ya da lisansüstü programı bitirenlerden İngilizce yeterlik belgesi ayrıca istenmez. Program koordinatörü ayrıca lisans not ortalaması, mülakat, referans mektubu ya da niyet mektubu isteyebilir."
+      },
+      "notes": "Kaynak: Kadir Has Üniversitesi Lisansüstü Eğitim Uygulama Yönergesi (Senato kararı: 22.08.2024, 2024/10), Madde 6. Kontenjanlar ve programa özel koşullar her dönem Enstitü tarafından ayrıca ilan edilir."
+    },
+    {
+      "degree": "doktora",
+      "details": {
+        "ales": {
+          "required": true,
+          "min": 55,
+          "note": "Programın puan türünde aranır; YÖK'ün eşdeğer saydığı sınavlardan eşdeğer puan da kabul edilir. Doktora, sanatta yeterlik ya da uzmanlık (tıp, diş hekimliği, veteriner hekimlik, eczacılık) mezunlarından ALES istenmez; değerlendirmede ALES puanları 75 sayılır. Yalnızca özel yetenek sınavıyla öğrenci alan programlarda da ALES aranmaz."
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "Yabancı dil",
+              "options": [
+                {
+                  "exam": "YDS",
+                  "min": 65
+                }
+              ],
+              "note": "ÖSYM'nin eşdeğer saydığı uluslararası sınavlardan Senato'nun belirlediği puan da geçerlidir. Hangi durumlarda dil puanı aranmayacağını Senato belirler. Senato alt sınırı yükseltebilir."
+            }
+          ]
+        },
+        "evaluation": {
+          "weights": [
+            {
+              "item": "ALES ya da eşdeğeri",
+              "percent": 50
+            },
+            {
+              "item": "Mülakat",
+              "percent": 50
+            }
+          ],
+          "note": "Program gerekli görürse yazılı bilim sınavı yapabilir; yazılı sınavda uygun bulunmayan aday mülakata çağrılmaz. Uluslararası öğrencilerden ALES ya da eşdeğeri aranmaz."
+        },
+        "prep": "Yüksek lisans derecesini farklı bir alanda almış adaylara en çok iki yarıyıl süren bilimsel hazırlık programı uygulanabilir.",
+        "notes": "Tezli yüksek lisans diplomasıyla başvurulur. Program ayrıca yüksek lisans not ortalaması, referans mektubu, niyet mektubu ya da tez önerisi isteyebilir."
+      },
+      "notes": "Kaynak: Kadir Has Üniversitesi Lisansüstü Eğitim Uygulama Yönergesi (Senato kararı: 22.08.2024, 2024/10), Madde 7, 8 ve 9. Kontenjanlar ve programa özel koşullar her dönem Enstitü tarafından ayrıca ilan edilir."
+    },
+    {
+      "degree": "butunlesik-doktora",
+      "details": {
+        "ales": {
+          "required": true,
+          "min": 80,
+          "note": "Programın puan türünde aranır; YÖK'ün eşdeğer saydığı sınavlardan eşdeğer puan da kabul edilir."
+        },
+        "gpa": {
+          "min4": 3,
+          "note": "Lisans mezuniyet not ortalaması en az 3,00/4,00 ya da muadili olmalıdır. Senato alt sınırı yükseltebilir."
+        },
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "Yabancı dil",
+              "options": [
+                {
+                  "exam": "YDS",
+                  "min": 65
+                }
+              ],
+              "note": "ÖSYM'nin eşdeğer saydığı uluslararası sınavlardan Senato'nun belirlediği puan da geçerlidir. Hangi durumlarda dil puanı aranmayacağını Senato belirler. Senato alt sınırı yükseltebilir."
+            }
+          ]
+        },
+        "evaluation": {
+          "weights": [
+            {
+              "item": "ALES ya da eşdeğeri",
+              "percent": 50
+            },
+            {
+              "item": "Mülakat",
+              "percent": 50
+            }
+          ],
+          "note": "Program gerekli görürse yazılı bilim sınavı yapabilir; yazılı sınavda uygun bulunmayan aday mülakata çağrılmaz. Uluslararası öğrencilerden ALES ya da eşdeğeri aranmaz."
+        },
+        "notes": "Lisans diplomasıyla doktoraya başvuru. Program ayrıca referans mektubu, niyet mektubu ya da tez önerisi isteyebilir."
+      },
+      "notes": "Kaynak: Kadir Has Üniversitesi Lisansüstü Eğitim Uygulama Yönergesi (Senato kararı: 22.08.2024, 2024/10), Madde 7 ve 8. Kontenjanlar ve programa özel koşullar her dönem Enstitü tarafından ayrıca ilan edilir."
+    }
+  ]
+}

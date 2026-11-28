@@ -1,0 +1,223 @@
+{
+  "format": "lisansustu-ilan/1",
+  "university": {
+    "slug": "itu",
+    "name": "İstanbul Teknik Üniversitesi",
+    "short_name": "İTÜ",
+    "city": "İstanbul",
+    "kind": "devlet",
+    "website": "https://www.itu.edu.tr"
+  },
+  "rules": [
+    {
+      "institute": "Lisansüstü Eğitim Enstitüsü",
+      "degree": "yl-tezli",
+      "details": {
+        "ales": {
+          "required": true,
+          "min": 55,
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 610,
+              "note": "ALES 55 karşılığı olarak 610 yazıyor (GRE'nin eski 200-800 ölçeği). Güncel karşılıklar için İTÜ'nün ALES - GRE - GMAT dönüşüm tablosuna bakın."
+            }
+          ],
+          "note": "Enstitü genelinde aranan alt sınırdır; programlar daha yüksek sınır ilan edebilir. ALES ve GRE belgeleri 5 yıl geçerlidir. Yüksek lisansını bitirip en fazla bir yarıyıl ara veren adayın önceki ALES belgesi süreye bakılmadan kabul edilir."
+        },
+        "language": {
+          "required": true,
+          "note": "İTÜ Senatosu'nun kabul ettiği İngilizce yeterlik belgelerinden biri istenir; kabul edilen sınavlar ve geçerlilik süreleri Öğrenci İşleri Daire Başkanlığı'nın sayfasında yazar. Türkiye'de girilen TOEFL iBT sınavlarından yalnızca devlet ve vakıf üniversitelerindeki sınav merkezlerinde alınanlar kabul edilir. Ana dili İngilizce olan bir ülkenin vatandaşı olup resmî dili İngilizce olan bir ülkede lise, lisans ya da yüksek lisans diploması almış adaylardan belge istenmez. Kayıt hakkı kazanıp kaydolan ama İngilizcesi yetersiz olan yüksek lisans öğrencisine bir yıl süre tanınır; süre sonunda yeterliği sağlayamayan öğrencinin ilişiği kesilir."
+        },
+        "exam": {
+          "note": "Adaylar, öğrenci kabul komisyonlarınca mülakata alınır. Mülakat tarihlerini anabilim dalı başkanlıkları belirler; tarihler mülakat haftasından önce Enstitü'nün sitesinde ilan edilir."
+        },
+        "documents": [
+          {
+            "label": "Transkript",
+            "detail": "Mezun olunan ya da olunacak bütün yükseköğretim kurumlarından alınmış, lisans ve yüksek lisans derslerini ve notlarını gösteren belgeler."
+          },
+          {
+            "label": "ALES ya da GRE sonuç belgesi",
+            "detail": "Belge 5 yıl geçerlidir."
+          },
+          {
+            "label": "İngilizce yeterlik belgesi",
+            "detail": "İTÜ Senatosu'nun kabul ettiği belgelerden biri."
+          },
+          {
+            "label": "Niyet mektubu",
+            "detail": "Lisansüstü eğitimden beklentileri ve çalışılmak istenen alanı anlatan mektup."
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2,
+            "detail": "Başvuru sistemine yüklenmediyse mülakatta komisyona sunulur."
+          }
+        ]
+      },
+      "notes": "Başvurular yalnızca çevrim içi yapılır; başvuru tarihleri, kontenjanlar ve programlara özel koşullar her dönem Öğrenci İşleri Daire Başkanlığı tarafından ayrıca ilan edilir.",
+      "source_url": "https://lee.itu.edu.tr/adayogrenciler/lisansustu-basvuru"
+    },
+    {
+      "institute": "Lisansüstü Eğitim Enstitüsü",
+      "degree": "yl-tezsiz",
+      "details": {
+        "language": {
+          "required": true,
+          "rules": [
+            {
+              "label": "II. öğretim tezsiz programlar",
+              "options": [
+                {
+                  "exam": "KURUM",
+                  "name": "İTÜ Yabancı Dil Sınavı",
+                  "min": 55
+                }
+              ]
+            }
+          ],
+          "note": "İTÜ Senatosu'nun kabul ettiği İngilizce yeterlik belgelerinden biri istenir; kabul edilen sınavlar ve geçerlilik süreleri Öğrenci İşleri Daire Başkanlığı'nın sayfasında yazar. Türkiye'de girilen TOEFL iBT sınavlarından yalnızca devlet ve vakıf üniversitelerindeki sınav merkezlerinde alınanlar kabul edilir. Ana dili İngilizce olan bir ülkenin vatandaşı olup resmî dili İngilizce olan bir ülkede lise, lisans ya da yüksek lisans diploması almış adaylardan belge istenmez."
+        },
+        "exam": {
+          "note": "Adaylar, öğrenci kabul komisyonlarınca mülakata alınır. Mülakat tarihlerini anabilim dalı başkanlıkları belirler; tarihler mülakat haftasından önce Enstitü'nün sitesinde ilan edilir."
+        },
+        "documents": [
+          {
+            "label": "Transkript",
+            "detail": "Mezun olunan ya da olunacak bütün yükseköğretim kurumlarından alınmış, lisans ve yüksek lisans derslerini ve notlarını gösteren belgeler."
+          },
+          {
+            "label": "ALES ya da GRE sonuç belgesi",
+            "detail": "Belge 5 yıl geçerlidir."
+          },
+          {
+            "label": "İngilizce yeterlik belgesi",
+            "detail": "İTÜ Senatosu'nun kabul ettiği belgelerden biri."
+          },
+          {
+            "label": "Niyet mektubu",
+            "detail": "Lisansüstü eğitimden beklentileri ve çalışılmak istenen alanı anlatan mektup."
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2,
+            "detail": "Başvuru sistemine yüklenmediyse mülakatta komisyona sunulur."
+          }
+        ],
+        "notes": "Enstitü genelindeki ALES alt sınırı 55'tir; ancak bazı tezsiz programlarda ALES şartı aranmayabilir. Programın o dönem ilan edilen koşullarına bakın."
+      },
+      "notes": "Başvurular yalnızca çevrim içi yapılır; başvuru tarihleri, kontenjanlar ve programlara özel koşullar her dönem Öğrenci İşleri Daire Başkanlığı tarafından ayrıca ilan edilir.",
+      "source_url": "https://lee.itu.edu.tr/adayogrenciler/lisansustu-basvuru"
+    },
+    {
+      "institute": "Lisansüstü Eğitim Enstitüsü",
+      "degree": "doktora",
+      "details": {
+        "ales": {
+          "required": true,
+          "min": 55,
+          "substitutes": [
+            {
+              "exam": "GRE",
+              "section": "Sayısal",
+              "min": 610,
+              "note": "ALES 55 karşılığı olarak 610 yazıyor (GRE'nin eski 200-800 ölçeği). Güncel karşılıklar için İTÜ'nün ALES - GRE - GMAT dönüşüm tablosuna bakın."
+            }
+          ],
+          "note": "Enstitü genelinde aranan alt sınırdır; programlar daha yüksek sınır ilan edebilir. ALES ve GRE belgeleri 5 yıl geçerlidir. Yüksek lisansını bitirip en fazla bir yarıyıl ara veren adayın önceki ALES belgesi süreye bakılmadan kabul edilir."
+        },
+        "language": {
+          "required": true,
+          "note": "İTÜ Senatosu'nun kabul ettiği İngilizce yeterlik belgelerinden biri istenir; kabul edilen sınavlar ve geçerlilik süreleri Öğrenci İşleri Daire Başkanlığı'nın sayfasında yazar. Türkiye'de girilen TOEFL iBT sınavlarından yalnızca devlet ve vakıf üniversitelerindeki sınav merkezlerinde alınanlar kabul edilir. Ana dili İngilizce olan bir ülkenin vatandaşı olup resmî dili İngilizce olan bir ülkede lise, lisans ya da yüksek lisans diploması almış adaylardan belge istenmez. Sınav sonuç belgesi olmayan doktora adayı başvurusunu tamamlayabilir; ancak kesin kayıtta belgeyi teslim edemeyen adayın kaydı yapılmaz."
+        },
+        "exam": {
+          "note": "Adaylar, öğrenci kabul komisyonlarınca mülakata alınır. Mülakat tarihlerini anabilim dalı başkanlıkları belirler; tarihler mülakat haftasından önce Enstitü'nün sitesinde ilan edilir."
+        },
+        "documents": [
+          {
+            "label": "Transkript",
+            "detail": "Mezun olunan ya da olunacak bütün yükseköğretim kurumlarından alınmış, lisans ve yüksek lisans derslerini ve notlarını gösteren belgeler."
+          },
+          {
+            "label": "ALES ya da GRE sonuç belgesi",
+            "detail": "Belge 5 yıl geçerlidir."
+          },
+          {
+            "label": "İngilizce yeterlik belgesi",
+            "detail": "İTÜ Senatosu'nun kabul ettiği belgelerden biri."
+          },
+          {
+            "label": "Niyet mektubu",
+            "detail": "Lisansüstü eğitimden beklentileri ve çalışılmak istenen alanı anlatan mektup."
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2,
+            "detail": "Başvuru sistemine yüklenmediyse mülakatta komisyona sunulur."
+          },
+          {
+            "label": "Danışman referans mektubu",
+            "count": 1,
+            "detail": "Birlikte çalışılması planlanan danışmandan alınır; diğer iki mektuba ek olarak istenir."
+          }
+        ]
+      },
+      "notes": "Başvurular yalnızca çevrim içi yapılır; başvuru tarihleri, kontenjanlar ve programlara özel koşullar her dönem Öğrenci İşleri Daire Başkanlığı tarafından ayrıca ilan edilir.",
+      "source_url": "https://lee.itu.edu.tr/adayogrenciler/lisansustu-basvuru"
+    },
+    {
+      "institute": "Lisansüstü Eğitim Enstitüsü",
+      "degree": "butunlesik-doktora",
+      "details": {
+        "ales": {
+          "required": true,
+          "min": 80,
+          "note": "Lisans derecesiyle doktora başvurusunda aranan alt sınırdır; programlar daha yüksek sınır ilan edebilir. ALES ve GRE belgeleri 5 yıl geçerlidir. GRE karşılığı için İTÜ'nün ALES - GRE - GMAT dönüşüm tablosuna bakın."
+        },
+        "gpa": {
+          "min4": 3,
+          "source": "Not ortalaması – lisans derecesiyle doktora başvurusu: 3.00"
+        },
+        "language": {
+          "required": true,
+          "note": "İTÜ Senatosu'nun kabul ettiği İngilizce yeterlik belgelerinden biri istenir; kabul edilen sınavlar ve geçerlilik süreleri Öğrenci İşleri Daire Başkanlığı'nın sayfasında yazar. Türkiye'de girilen TOEFL iBT sınavlarından yalnızca devlet ve vakıf üniversitelerindeki sınav merkezlerinde alınanlar kabul edilir. Ana dili İngilizce olan bir ülkenin vatandaşı olup resmî dili İngilizce olan bir ülkede lise, lisans ya da yüksek lisans diploması almış adaylardan belge istenmez. Sınav sonuç belgesi olmayan doktora adayı başvurusunu tamamlayabilir; ancak kesin kayıtta belgeyi teslim edemeyen adayın kaydı yapılmaz."
+        },
+        "exam": {
+          "note": "Adaylar, öğrenci kabul komisyonlarınca mülakata alınır. Mülakat tarihlerini anabilim dalı başkanlıkları belirler; tarihler mülakat haftasından önce Enstitü'nün sitesinde ilan edilir."
+        },
+        "documents": [
+          {
+            "label": "Transkript",
+            "detail": "Mezun olunan ya da olunacak bütün yükseköğretim kurumlarından alınmış, lisans ve yüksek lisans derslerini ve notlarını gösteren belgeler."
+          },
+          {
+            "label": "ALES ya da GRE sonuç belgesi",
+            "detail": "Belge 5 yıl geçerlidir."
+          },
+          {
+            "label": "İngilizce yeterlik belgesi",
+            "detail": "İTÜ Senatosu'nun kabul ettiği belgelerden biri."
+          },
+          {
+            "label": "Niyet mektubu",
+            "detail": "Lisansüstü eğitimden beklentileri ve çalışılmak istenen alanı anlatan mektup."
+          },
+          {
+            "label": "Referans mektubu",
+            "count": 2,
+            "detail": "Başvuru sistemine yüklenmediyse mülakatta komisyona sunulur."
+          },
+          {
+            "label": "Danışman referans mektubu",
+            "count": 1,
+            "detail": "Birlikte çalışılması planlanan danışmandan alınır; diğer iki mektuba ek olarak istenir."
+          }
+        ]
+      },
+      "notes": "Başvurular yalnızca çevrim içi yapılır; başvuru tarihleri, kontenjanlar ve programlara özel koşullar her dönem Öğrenci İşleri Daire Başkanlığı tarafından ayrıca ilan edilir.",
+      "source_url": "https://lee.itu.edu.tr/adayogrenciler/lisansustu-basvuru"
+    }
+  ]
+}
