@@ -41,7 +41,7 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <div className={clsx("hidden items-center gap-3 transition-opacity md:flex", loading && "opacity-0")}>
+        <div className={clsx("hidden items-center gap-3 transition-opacity md:flex", loading && "invisible opacity-0")}>
           {user ? (
             <>
               {isAdmin && (

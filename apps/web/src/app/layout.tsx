@@ -3,6 +3,7 @@ import { Nunito } from "next/font/google";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { AuthProvider } from "@/components/auth/auth-provider";
+import { MotionSettings } from "@/components/motion-settings";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
@@ -25,11 +26,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="tr" className={`${nunito.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col font-sans">
-        <AuthProvider>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </AuthProvider>
+        <MotionSettings>
+          <AuthProvider>
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </AuthProvider>
+        </MotionSettings>
       </body>
     </html>
   );
