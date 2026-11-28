@@ -46,6 +46,20 @@ body {
 .btn-outline:active {
   box-shadow: 0 0 0 var(--navy-soft);
 }
+/* Yönetim panelindeki sık kullanılan küçük düğmeler */
+.btn-sm {
+  @apply rounded-xl px-3.5 py-2 text-xs;
+}
+.btn-danger {
+  @apply border-2 border-red-200 bg-white text-red-700;
+  box-shadow: 0 4px 0 var(--color-red-200);
+}
+.btn-danger:active {
+  box-shadow: 0 0 0 var(--color-red-200);
+}
+.btn:disabled {
+  @apply cursor-not-allowed opacity-60;
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

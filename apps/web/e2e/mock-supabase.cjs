@@ -1,9 +1,13 @@
-// Uçtan uca denemeler için sahte Supabase (Auth + profiles tablosu).
+// Uçtan uca denemeler için sahte Supabase (Auth + veritabanı).
 // Gerçek projeye hiçbir istek gitmez; veriler yalnızca bellekte tutulur, e-postalar gönderilmez.
-// Davranışlar gerçek Supabase Auth sunucusunun (GoTrue) yaptıklarını taklit eder.
+// Üyelik tarafı gerçek Supabase Auth sunucusunun (GoTrue) yaptıklarını taklit eder.
+// Veri tarafı taklit değildir: supabase/migrations dosyalarıyla kurulan bellek içi bir PostgreSQL'dir (bkz. postgrest.cjs).
 const http = require('http');
 const crypto = require('crypto');
+const { handleRest } = require('./postgrest.cjs');
 
+/** Bellek içi veritabanı (packages/db/src/harness.ts). startMock içinde kurulur. */
+let db;
 const users = new Map(); // email -> { id, email, password, confirmed, providers, meta, profile }
 const mails = []; // "gönderilen" e-postalar, eskiden yeniye: { to, kind, link, flow }
 const links = new Map(); // e-postadaki linkin anahtarı -> { email, kind, challenge, used, revoked }
@@ -69,23 +73,16 @@ function byToken(req) {
   }
 }
 
-/** Veritabanındaki "yeni üye" tetikleyicisinin yaptığını taklit eder (supabase/migrations). */
-function createUser({ email, password, confirmed, provider, meta }) {
-  const phone = /^05[0-9]{9}$/.test(meta.phone || '') ? meta.phone : null;
-  const u = {
-    id: crypto.randomUUID(),
-    email,
-    password,
-    confirmed,
-    providers: [provider],
-    meta,
-    profile: {
-      full_name: String(meta.full_name || '').trim().slice(0, 120) || null,
-      phone,
-      school: String(meta.school || '').trim().slice(0, 160) || null,
-      kvkk_accepted_at: meta.kvkk_accepted === true ? new Date().toISOString() : null,
-    },
-  };
+/** Üyenin profil satırını veritabanından okur; denemeler `users.get(e-posta).profile` ile bakar. */
+async function refreshProfile(u) {
+  u.profile = (await db.rows('select full_name, phone, school, kvkk_accepted_at, role from public.profiles where id = $1', [u.id]))[0];
+}
+
+/** Üyeyi oluşturur. Profil satırını veritabanındaki "yeni üye" tetikleyicisi açar (supabase/migrations). */
+async function createUser({ email, password, confirmed, provider, meta }) {
+  const u = { id: crypto.randomUUID(), email, password, confirmed, providers: [provider], meta, profile: null };
+  await db.rows('insert into auth.users (id, email, raw_user_meta_data) values ($1, $2, $3)', [u.id, email, JSON.stringify(meta)]);
+  await refreshProfile(u);
   users.set(email, u);
   return u;
 }
@@ -165,156 +162,183 @@ function html(res, body) {
 const server = http.createServer((req, res) => {
   let raw = '';
   req.on('data', (c) => (raw += c));
-  req.on('end', () => {
-    const url = new URL(req.url, 'http://x');
-    if (req.method === 'OPTIONS') return send(res, 204);
-    const body = raw ? JSON.parse(raw) : {};
-    const path = url.pathname;
-    const q = url.searchParams;
-    log.push(`${req.method} ${path}${url.search}`);
-
-    if (path === '/auth/v1/signup') {
-      const existing = users.get(body.email);
-      // Kayıtlı bir e-posta için sunucu, hesabın varlığını belli etmemek adına sahte bir kullanıcı döndürür.
-      if (existing && existing.confirmed) return send(res, 200, userJson(existing, true));
-      if (body.password.length < 8) return err(res, 422, 'weak_password', 'Password should be at least 8 characters.');
-      if (body.email === settings.unauthorizedEmail) return err(res, 400, 'email_address_not_authorized', 'Email address cannot be used as it is not authorized');
-      // Doğrulanmamış bir kayıt varsa sunucu onu güncellemez: ilk yazılan şifre ve bilgiler kalır, yalnızca yeni e-posta gider.
-      const u = existing || createUser({ email: body.email, password: body.password, confirmed: false, provider: 'email', meta: body.data || {} });
-      if (!sendMail(u, 'signup', q.get('redirect_to'), body.code_challenge)) return mailLimit(res);
-      return send(res, 200, userJson(u));
+  req.on('end', async () => {
+    try {
+      await handle(req, res, raw);
+    } catch (e) {
+      console.error('mock: beklenmeyen hata', e);
+      send(res, 500, { msg: 'mock: ' + (e && e.message) });
     }
-
-    if (path === '/auth/v1/resend') {
-      const u = users.get(body.email);
-      if (u && !u.confirmed && body.type === 'signup') {
-        const challenge = settings.resendFlow === 'pkce' ? body.code_challenge : null;
-        if (!sendMail(u, 'signup', q.get('redirect_to'), challenge)) return mailLimit(res);
-      }
-      return send(res, 200, {});
-    }
-
-    if (path === '/auth/v1/recover') {
-      const u = users.get(body.email);
-      // Hesap yoksa da aynı yanıt döner; e-posta gitmez.
-      if (u && !sendMail(u, 'recovery', q.get('redirect_to'), body.code_challenge)) return mailLimit(res);
-      return send(res, 200, {});
-    }
-
-    // E-postadaki linkin açtığı adres: e-postayı doğrular, sonra siteye yönlendirir.
-    if (path === '/auth/v1/verify' && req.method === 'GET') {
-      const token = q.get('token') || '';
-      const link = links.get(token);
-      const target = allowedRedirect(q.get('redirect_to'));
-      if (!link || link.used || link.revoked || link.kind !== q.get('type')) {
-        const params = { error: 'access_denied', error_code: 'otp_expired', error_description: 'Email link is invalid or has expired' };
-        return errorRedirect(res, target, params, token.startsWith('pkce_'));
-      }
-      link.used = true;
-      const u = users.get(link.email);
-      u.confirmed = true;
-      return successRedirect(res, target, u, link.challenge, link.kind);
-    }
-
-    // "Google ile devam et": gerçekte Google'ın hesap seçme ekranına gidilir.
-    if (path === '/auth/v1/authorize' && req.method === 'GET') {
-      const state = random();
-      oauthStates.set(state, { redirectTo: allowedRedirect(q.get('redirect_to')), challenge: q.get('code_challenge') });
-      return html(
-        res,
-        `<h1>Sahte Google: ${settings.google.email}</h1>
-         <p><a id="devam" href="/auth/v1/callback?state=${state}">Bu hesapla devam et</a></p>
-         <p><a id="vazgec" href="/auth/v1/callback?state=${state}&error=access_denied">Vazgeç</a></p>`,
-      );
-    }
-    if (path === '/auth/v1/callback' && req.method === 'GET') {
-      const state = oauthStates.get(q.get('state'));
-      if (!state) return send(res, 400, { msg: 'mock: bilinmeyen Google dönüşü' });
-      oauthStates.delete(q.get('state'));
-      if (q.get('error')) {
-        // Google'dan gelen vazgeçmede sunucunun kendi hata kodu (error_code) olmaz.
-        return errorRedirect(res, state.redirectTo, { error: q.get('error'), error_description: 'User denied access' }, true);
-      }
-      const { email, name } = settings.google;
-      const googleMeta = { email, full_name: name, name, email_verified: true, iss: 'https://accounts.google.com', sub: 'google-' + email };
-      let u = users.get(email);
-      if (!u) {
-        u = createUser({ email, password: null, confirmed: true, provider: 'google', meta: googleMeta });
-      } else if (!u.confirmed) {
-        // Doğrulanmamış e-posta kaydının şifresi ve kayıt bilgileri düşer; hesap Google ile doğrulanmış olur.
-        Object.assign(u, { password: null, confirmed: true, providers: ['google'], meta: googleMeta });
-      } else if (!u.providers.includes('google')) {
-        u.providers.push('google');
-      }
-      return successRedirect(res, state.redirectTo, u, state.challenge);
-    }
-
-    if (path === '/auth/v1/token') {
-      const grant = q.get('grant_type');
-      if (grant === 'refresh_token') {
-        const u = [...users.values()].find((x) => 'yenile-' + x.id === body.refresh_token);
-        return u ? send(res, 200, session(u)) : err(res, 400, 'refresh_token_not_found', 'Invalid Refresh Token');
-      }
-      if (grant === 'pkce') {
-        const code = codes.get(body.auth_code);
-        if (!code) return err(res, 404, 'flow_state_not_found', 'invalid flow state, no valid flow state found');
-        const challenge = crypto.createHash('sha256').update(String(body.code_verifier)).digest('base64url');
-        if (challenge !== code.challenge) return err(res, 400, 'bad_code_verifier', 'code challenge does not match previously saved code verifier');
-        codes.delete(body.auth_code);
-        return send(res, 200, session(users.get(code.email)));
-      }
-      const u = users.get(body.email);
-      // Şifre, e-postanın doğrulanıp doğrulanmadığından önce kontrol edilir.
-      if (!u || u.password === null || u.password !== body.password) return err(res, 400, 'invalid_credentials', 'Invalid login credentials');
-      if (!u.confirmed) return err(res, 400, 'email_not_confirmed', 'Email not confirmed');
-      return send(res, 200, session(u));
-    }
-
-    if (path === '/auth/v1/user') {
-      const u = byToken(req);
-      if (!u) return err(res, 401, 'bad_jwt', 'invalid JWT');
-      if (req.method === 'PUT' && body.password) {
-        if (body.password.length < 8) return err(res, 422, 'weak_password', 'Password should be at least 8 characters.');
-        if (body.password === u.password) return err(res, 422, 'same_password', 'New password should be different from the old password.');
-        u.password = body.password;
-      }
-      return send(res, 200, userJson(u));
-    }
-    if (path === '/auth/v1/logout') return send(res, 204);
-
-    if (path === '/rest/v1/profiles') {
-      const u = byToken(req);
-      if (!u) return send(res, 200, []); // anon: RLS hiçbir satır göstermez
-      const id = (q.get('id') || '').replace('eq.', '');
-      const columns = (q.get('select') || '*').split(',').map((c) => c.trim());
-      const row = () => (columns[0] === '*' ? u.profile : Object.fromEntries(columns.map((c) => [c, u.profile[c]])));
-      if (req.method === 'GET') return send(res, 200, id === u.id ? [row()] : []);
-      if (req.method === 'PATCH') {
-        const representation = /return=representation/.test(req.headers.prefer || '');
-        if (id !== u.id) return representation ? send(res, 200, []) : send(res, 204);
-        // Üyenin değiştirebildiği sütunlar (migration dosyalarındaki "grant update").
-        const writable = ['full_name', 'phone', 'school', 'kvkk_accepted_at'];
-        if (Object.keys(body).some((k) => !writable.includes(k))) return send(res, 403, { code: '42501', message: 'permission denied for table profiles' });
-        if (body.phone != null && !/^05[0-9]{9}$/.test(body.phone)) return send(res, 400, { code: '23514', message: 'check constraint' });
-        const before = u.profile.kvkk_accepted_at;
-        Object.assign(u.profile, body);
-        // Onay zamanı bir kez ve sunucu saatiyle yazılır (profiles_guard_consent tetikleyicisi).
-        if (before) u.profile.kvkk_accepted_at = before;
-        else if (u.profile.kvkk_accepted_at) u.profile.kvkk_accepted_at = new Date().toISOString();
-        return representation ? send(res, 200, [row()]) : send(res, 204);
-      }
-    }
-    send(res, 404, { msg: 'mock: bilinmeyen yol ' + path });
   });
 });
 
+async function handle(req, res, raw) {
+  const url = new URL(req.url, 'http://x');
+  if (req.method === 'OPTIONS') return send(res, 204);
+  const body = raw ? JSON.parse(raw) : {};
+  const path = url.pathname;
+  const q = url.searchParams;
+  log.push(`${req.method} ${path}${url.search}`);
+
+  if (path === '/auth/v1/signup') {
+    const existing = users.get(body.email);
+    // Kayıtlı bir e-posta için sunucu, hesabın varlığını belli etmemek adına sahte bir kullanıcı döndürür.
+    if (existing && existing.confirmed) return send(res, 200, userJson(existing, true));
+    if (body.password.length < 8) return err(res, 422, 'weak_password', 'Password should be at least 8 characters.');
+    if (body.email === settings.unauthorizedEmail) return err(res, 400, 'email_address_not_authorized', 'Email address cannot be used as it is not authorized');
+    // Doğrulanmamış bir kayıt varsa sunucu onu güncellemez: ilk yazılan şifre ve bilgiler kalır, yalnızca yeni e-posta gider.
+    const u = existing || (await createUser({ email: body.email, password: body.password, confirmed: false, provider: 'email', meta: body.data || {} }));
+    if (!sendMail(u, 'signup', q.get('redirect_to'), body.code_challenge)) return mailLimit(res);
+    return send(res, 200, userJson(u));
+  }
+
+  if (path === '/auth/v1/resend') {
+    const u = users.get(body.email);
+    if (u && !u.confirmed && body.type === 'signup') {
+      const challenge = settings.resendFlow === 'pkce' ? body.code_challenge : null;
+      if (!sendMail(u, 'signup', q.get('redirect_to'), challenge)) return mailLimit(res);
+    }
+    return send(res, 200, {});
+  }
+
+  if (path === '/auth/v1/recover') {
+    const u = users.get(body.email);
+    // Hesap yoksa da aynı yanıt döner; e-posta gitmez.
+    if (u && !sendMail(u, 'recovery', q.get('redirect_to'), body.code_challenge)) return mailLimit(res);
+    return send(res, 200, {});
+  }
+
+  // E-postadaki linkin açtığı adres: e-postayı doğrular, sonra siteye yönlendirir.
+  if (path === '/auth/v1/verify' && req.method === 'GET') {
+    const token = q.get('token') || '';
+    const link = links.get(token);
+    const target = allowedRedirect(q.get('redirect_to'));
+    if (!link || link.used || link.revoked || link.kind !== q.get('type')) {
+      const params = { error: 'access_denied', error_code: 'otp_expired', error_description: 'Email link is invalid or has expired' };
+      return errorRedirect(res, target, params, token.startsWith('pkce_'));
+    }
+    link.used = true;
+    const u = users.get(link.email);
+    u.confirmed = true;
+    return successRedirect(res, target, u, link.challenge, link.kind);
+  }
+
+  // "Google ile devam et": gerçekte Google'ın hesap seçme ekranına gidilir.
+  if (path === '/auth/v1/authorize' && req.method === 'GET') {
+    const state = random();
+    oauthStates.set(state, { redirectTo: allowedRedirect(q.get('redirect_to')), challenge: q.get('code_challenge') });
+    return html(
+      res,
+      `<h1>Sahte Google: ${settings.google.email}</h1>
+       <p><a id="devam" href="/auth/v1/callback?state=${state}">Bu hesapla devam et</a></p>
+       <p><a id="vazgec" href="/auth/v1/callback?state=${state}&error=access_denied">Vazgeç</a></p>`,
+    );
+  }
+  if (path === '/auth/v1/callback' && req.method === 'GET') {
+    const state = oauthStates.get(q.get('state'));
+    if (!state) return send(res, 400, { msg: 'mock: bilinmeyen Google dönüşü' });
+    oauthStates.delete(q.get('state'));
+    if (q.get('error')) {
+      // Google'dan gelen vazgeçmede sunucunun kendi hata kodu (error_code) olmaz.
+      return errorRedirect(res, state.redirectTo, { error: q.get('error'), error_description: 'User denied access' }, true);
+    }
+    const { email, name } = settings.google;
+    const googleMeta = { email, full_name: name, name, email_verified: true, iss: 'https://accounts.google.com', sub: 'google-' + email };
+    let u = users.get(email);
+    if (!u) {
+      u = await createUser({ email, password: null, confirmed: true, provider: 'google', meta: googleMeta });
+    } else if (!u.confirmed) {
+      // Doğrulanmamış e-posta kaydının şifresi ve kayıt bilgileri düşer; hesap Google ile doğrulanmış olur.
+      Object.assign(u, { password: null, confirmed: true, providers: ['google'], meta: googleMeta });
+    } else if (!u.providers.includes('google')) {
+      u.providers.push('google');
+    }
+    return successRedirect(res, state.redirectTo, u, state.challenge);
+  }
+
+  if (path === '/auth/v1/token') {
+    const grant = q.get('grant_type');
+    if (grant === 'refresh_token') {
+      const u = [...users.values()].find((x) => 'yenile-' + x.id === body.refresh_token);
+      return u ? send(res, 200, session(u)) : err(res, 400, 'refresh_token_not_found', 'Invalid Refresh Token');
+    }
+    if (grant === 'pkce') {
+      const code = codes.get(body.auth_code);
+      if (!code) return err(res, 404, 'flow_state_not_found', 'invalid flow state, no valid flow state found');
+      const challenge = crypto.createHash('sha256').update(String(body.code_verifier)).digest('base64url');
+      if (challenge !== code.challenge) return err(res, 400, 'bad_code_verifier', 'code challenge does not match previously saved code verifier');
+      codes.delete(body.auth_code);
+      return send(res, 200, session(users.get(code.email)));
+    }
+    const u = users.get(body.email);
+    // Şifre, e-postanın doğrulanıp doğrulanmadığından önce kontrol edilir.
+    if (!u || u.password === null || u.password !== body.password) return err(res, 400, 'invalid_credentials', 'Invalid login credentials');
+    if (!u.confirmed) return err(res, 400, 'email_not_confirmed', 'Email not confirmed');
+    return send(res, 200, session(u));
+  }
+
+  if (path === '/auth/v1/user') {
+    const u = byToken(req);
+    if (!u) return err(res, 401, 'bad_jwt', 'invalid JWT');
+    if (req.method === 'PUT' && body.password) {
+      if (body.password.length < 8) return err(res, 422, 'weak_password', 'Password should be at least 8 characters.');
+      if (body.password === u.password) return err(res, 422, 'same_password', 'New password should be different from the old password.');
+      u.password = body.password;
+    }
+    return send(res, 200, userJson(u));
+  }
+  if (path === '/auth/v1/logout') return send(res, 204);
+
+  if (path.startsWith('/rest/v1/')) {
+    const u = byToken(req);
+    const result = await handleRest(db.pg, {
+      method: req.method,
+      resource: path.slice('/rest/v1/'.length),
+      query: q,
+      body: raw ? body : undefined,
+      prefer: req.headers.prefer,
+      accept: req.headers.accept,
+      user: u,
+    });
+    if (u) await refreshProfile(u);
+    res.writeHead(result.status, {
+      'content-type': 'application/json; charset=utf-8',
+      'access-control-allow-origin': '*',
+      'access-control-allow-headers': '*',
+      'access-control-allow-methods': '*',
+      'access-control-expose-headers': '*',
+    });
+    return res.end(result.body ?? '');
+  }
+  send(res, 404, { msg: 'mock: bilinmeyen yol ' + path });
+}
+
 /** Sahte sunucuyu başlatır; kapatmak için dönen sunucunun close() fonksiyonu çağrılır. */
-function startMock(port) {
+async function startMock(port) {
   origin = `http://localhost:${port}`;
+  const { createTestDb } = await import('../../../packages/db/src/harness.ts');
+  db = await createTestDb();
   return new Promise((resolve) => server.listen(port, () => resolve(server)));
 }
+
+/** Bir üyeye yönetici yetkisi verir (canlıda bu, SQL Editor'da elle yapılır). */
+async function makeAdmin(email) {
+  const u = users.get(email);
+  await db.rows("update public.profiles set role = 'admin' where id = $1", [u.id]);
+  await refreshProfile(u);
+}
+
+/** Doğrulanmış bir üyeyi doğrudan açar (kayıt adımlarını denemeyen takımlar için). */
+async function addMember({ email, password, name, admin = false }) {
+  const u = await createUser({ email, password, confirmed: true, provider: 'email', meta: { full_name: name, phone: '05321112233', kvkk_accepted: true } });
+  if (admin) await makeAdmin(email);
+  return u;
+}
+
+/** Veritabanına kısıtsız sorgu: denemelerin sonucu doğrulaması için. */
+const sql = (text, params) => db.rows(text, params);
 
 /** Bir adrese gönderilen e-postalar (eskiden yeniye). */
 const mailsTo = (email, kind) => mails.filter((m) => m.to === email && (!kind || m.kind === kind));
 
-module.exports = { startMock, settings, users, mailsTo, requestLog: log };
+module.exports = { startMock, settings, users, mailsTo, requestLog: log, makeAdmin, addMember, sql };

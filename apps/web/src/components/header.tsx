@@ -12,7 +12,7 @@ import { useAuth } from "./auth/auth-provider";
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const { user, loading } = useAuth();
+  const { user, loading, isAdmin } = useAuth();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -43,9 +43,16 @@ export function Header() {
         </nav>
         <div className={clsx("hidden items-center gap-3 transition-opacity md:flex", loading && "opacity-0")}>
           {user ? (
-            <Link href="/hesabim" className="btn btn-primary !px-4 !py-2 text-sm">
-              Hesabım
-            </Link>
+            <>
+              {isAdmin && (
+                <Link href="/yonetim" className="btn btn-outline !px-4 !py-2 text-sm">
+                  Yönetim
+                </Link>
+              )}
+              <Link href="/hesabim" className="btn btn-primary !px-4 !py-2 text-sm">
+                Hesabım
+              </Link>
+            </>
           ) : (
             <>
               <Link href="/giris" className="btn btn-outline !px-4 !py-2 text-sm">
@@ -87,9 +94,16 @@ export function Header() {
                 </Link>
               ))}
               {user ? (
-                <Link href="/hesabim" onClick={() => setOpen(false)} className="btn btn-primary mt-3 text-sm">
-                  Hesabım
-                </Link>
+                <div className="mt-3 grid gap-3">
+                  {isAdmin && (
+                    <Link href="/yonetim" onClick={() => setOpen(false)} className="btn btn-outline text-sm">
+                      Yönetim
+                    </Link>
+                  )}
+                  <Link href="/hesabim" onClick={() => setOpen(false)} className="btn btn-primary text-sm">
+                    Hesabım
+                  </Link>
+                </div>
               ) : (
                 <div className="mt-3 grid grid-cols-2 gap-3">
                   <Link href="/giris" onClick={() => setOpen(false)} className="btn btn-outline text-sm">

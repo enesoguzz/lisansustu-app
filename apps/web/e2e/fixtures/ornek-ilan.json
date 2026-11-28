@@ -1,0 +1,50 @@
+{
+  "format": "lisansustu-ilan/1",
+  "university": { "slug": "bogazici", "name": "Boğaziçi Üniversitesi", "short_name": "Boğaziçi", "city": "İstanbul", "kind": "devlet", "website": "https://bogazici.edu.tr" },
+  "rules": [
+    { "degree": "doktora", "details": { "ales": { "required": true, "options": [{ "type": "SAY", "min": 55 }] } }, "notes": "Yönetmelikteki alt sınırlar." }
+  ],
+  "call": {
+    "academic_year": 2026,
+    "semester": "bahar",
+    "application_start": "2026-12-14T10:00:00+03:00",
+    "application_end": "2026-12-21T17:00:00+03:00",
+    "timeline": [{ "label": "Bilim sınavı", "date": "2026-12-25", "endDate": "2026-12-29" }, { "label": "Kayıt", "date": "2027-01-11" }],
+    "source_url": "https://adaylar.bogazici.edu.tr/tr-TR/Sayfa/Basvuru/Lisansustu/Tum",
+    "source_checked_on": "2026-11-28"
+  },
+  "listings": [
+    {
+      "program": { "name": "Bilgisayar Mühendisliği", "institute": "Fen Bilimleri Enstitüsü", "field": "muhendislik", "url": "https://cmpe.bogazici.edu.tr/" },
+      "degree": "yl-tezli",
+      "language": "en",
+      "details": {
+        "quota": { "main": 30, "prep": 1, "source": "30 (Esas sınıf) + 1 (Dil hazırlık sınıfı)" },
+        "ales": { "required": true, "options": [{ "type": "SAY", "min": 70 }], "substitutes": [{ "exam": "GRE", "section": "Sayısal", "min": 153 }] },
+        "gpa": { "min4": 2.5, "variants": [{ "when": "Alan dışından başvuranlar", "min4": 2.6 }] },
+        "language": { "required": true, "rules": [{ "label": "İngilizce yeterlik", "options": [{ "exam": "KURUM", "name": "BUEPT", "grade": "C" }, { "exam": "TOEFL", "min": 4.5, "sections": "Her bölümden en az 4,5" }, { "exam": "IELTS", "min": 6.5, "sections": "Akademik Yazma 6,5" }, { "exam": "CAE", "grade": "C" }] }] },
+        "documents": [{ "label": "Referans mektubu", "count": 2 }],
+        "exam": { "written": { "date": "2026-12-25", "time": "09.00-12.00", "place": "Bilgisayar Mühendisliği Binası" } }
+      }
+    },
+    {
+      "program": { "name": "Kimya Mühendisliği", "institute": "Fen Bilimleri Enstitüsü" },
+      "degree": "doktora",
+      "language": "en",
+      "details": {
+        "quota": { "main": 15, "prep": 1 },
+        "ales": { "required": true, "variants": [
+          { "when": "Not ortalaması 3,10 - 3,24", "gpaMin": 3.1, "gpaMax": 3.24, "options": [{ "type": "SAY", "min": 75 }], "substitutes": [{ "exam": "GRE", "section": "Sayısal", "min": 155 }] },
+          { "when": "Not ortalaması 3,25 ve üzeri", "gpaMin": 3.25, "options": [{ "type": "SAY", "min": 70 }], "substitutes": [{ "exam": "GRE", "section": "Sayısal", "min": 153 }] }
+        ] },
+        "gpa": { "min4": 3.1 },
+        "language": { "required": true, "rules": [
+          { "label": "İngilizce yeterlik", "options": [{ "exam": "KURUM", "name": "BUEPT", "grade": "C" }] },
+          { "label": "Doktora yabancı dil şartı", "options": [{ "exam": "YDS", "min": 55 }, { "exam": "YOKDIL", "min": 55 }] }
+        ] }
+      }
+    },
+    { "program": { "name": "Fizik", "institute": "Fen Bilimleri Enstitüsü" }, "degree": "yl-tezli", "language": "en", "details": { "quota": { "main": 6 }, "ales": { "required": true, "options": [{ "type": "SAY", "min": 50 }] } } },
+    { "program": { "name": "İşletme", "institute": "Sosyal Bilimler Enstitüsü" }, "degree": "yl-tezsiz", "language": "en", "accepting": false }
+  ]
+}
