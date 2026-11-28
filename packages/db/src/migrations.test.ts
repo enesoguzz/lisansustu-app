@@ -141,6 +141,26 @@ describe("erişim kuralları", () => {
       expect(await db.rows("select role from public.profiles where id = $1", [member.id])).toEqual([{ role: "user" }]);
     });
 
+    it("sütun izni yanlışlıkla genişletilse bile kendini yönetici yapamaz", async () => {
+      await db.pg.exec("grant update (role) on public.profiles to authenticated");
+      try {
+        await expect(affected(member, `update public.profiles set role = 'admin' where id = '${member.id}'`)).rejects.toThrow(/Rol API üzerinden değiştirilemez/);
+        // Rolü değiştirmeyen güncelleme engellenmez.
+        expect(await affected(member, `update public.profiles set school = 'Deneme Üniversitesi', role = 'user' where id = '${member.id}'`)).toBe(1);
+      } finally {
+        await db.pg.exec("revoke update (role) on public.profiles from authenticated");
+      }
+      expect(await db.rows("select role from public.profiles where id = $1", [member.id])).toEqual([{ role: "user" }]);
+    });
+
+    it("rolü veritabanı sahibi verebilir ve geri alabilir", async () => {
+      const other = await db.createUser();
+      await db.pg.query("update public.profiles set role = 'admin' where id = $1", [other.id]);
+      expect(await db.as(other, async (tx) => (await tx.query<{ ok: boolean }>("select public.is_admin() as ok")).rows[0].ok)).toBe(true);
+      await db.pg.query("update public.profiles set role = 'user' where id = $1", [other.id]);
+      expect(await db.as(other, async (tx) => (await tx.query<{ ok: boolean }>("select public.is_admin() as ok")).rows[0].ok)).toBe(false);
+    });
+
     it("içe aktarma yapamaz, kayıtlarını göremez", async () => {
       const payload = JSON.stringify(toPayload(sampleDoc()));
       await expect(db.as(member, (tx) => tx.query("select public.admin_import($1::jsonb)", [payload]))).rejects.toThrow(/yalnızca yöneticilere açık/);

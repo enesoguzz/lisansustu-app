@@ -25,6 +25,28 @@ $$;
 revoke execute on function public.is_admin() from public, anon;
 grant execute on function public.is_admin() to authenticated;
 
+-- Rol artık gerçek bir yetki taşıyor. Üyenin "role" sütununu değiştirmesini bugün sütun izinleri engelliyor
+-- (0001); bu tetikleyici ikinci kilittir: ileride bir dosya izinleri yanlışlıkla genişletse bile
+-- API'den gelen istek rolü değiştiremez. Rol yalnızca SQL Editor'dan (veritabanı sahibi olarak) verilir.
+create function public.profiles_guard_role()
+returns trigger
+language plpgsql
+set search_path = ''
+as $$
+begin
+  if new.role is distinct from old.role and current_user in ('anon', 'authenticated') then
+    raise exception 'Rol API üzerinden değiştirilemez.' using errcode = '42501';
+  end if;
+  return new;
+end;
+$$;
+
+revoke execute on function public.profiles_guard_role() from public, anon, authenticated;
+
+create trigger profiles_guard_role
+  before update on public.profiles
+  for each row execute function public.profiles_guard_role();
+
 -- Satır gerçekten değiştiyse güncellenme zamanını yeniler. Aynı dosya yeniden içe aktarıldığında
 -- değişmeyen kayıtların zamanı korunur; böylece "güncellendi" bilgisi anlamını yitirmez.
 create function public.touch_if_changed()
